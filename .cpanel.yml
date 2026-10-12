@@ -1,0 +1,12 @@
+---
+# cPanel → Git™ Version Control → "Deploy HEAD Commit"
+# Copies the site into the domain's document root. Change DEPLOYPATH to match your account,
+# e.g. /home/cpaneluser/public_html  (or /home/cpaneluser/public_html/mc for a subfolder).
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/CPANELUSER/public_html/
+    - /bin/mkdir -p $DEPLOYPATH
+    # --exclude keeps live data (config, uploaded images) safe on every deploy
+    - /bin/rsync -a --delete --exclude='.git' --exclude='.cpanel.yml' --exclude='includes/config.php' --exclude='uploads/*' --exclude='install/.lock' ./ $DEPLOYPATH
+    - /bin/mkdir -p ${DEPLOYPATH}uploads
+    - /bin/chmod 755 ${DEPLOYPATH}uploads
