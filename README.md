@@ -37,6 +37,13 @@ php -S 127.0.0.1:8000
 ```
 (The built-in PHP server ignores `.htaccess`, so use `post.php?slug=…` instead of `/blog/…` locally.)
 
+## Static design preview (GitHub Pages)
+GitHub Pages cannot run PHP, so a static preview of the design (sample blog posts, no CMS or working contact form) is built from the real pages:
+```bash
+php tools/build-static.php ./site /Makuwatsine-Chirenje-Attorneys
+```
+The output is published on the `gh-pages` branch → https://tafadzwa-chingombe.github.io/Makuwatsine-Chirenje-Attorneys/ (Settings → Pages → Branch: `gh-pages` / root).
+
 ## Structure
 ```
 index.php about.php practice-areas.php team.php blog.php post.php contact.php

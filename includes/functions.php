@@ -14,6 +14,9 @@ function config(?string $key = null, $default = null)
         $file = __DIR__ . '/config.php';
         $cfg = is_file($file) ? array_merge($defaults, (array) require $file) : $defaults;
         $cfg['_installed'] = is_file($file);
+        if (defined('STATIC_CONFIG')) { // set by tools/build-static.php only
+            $cfg = array_merge($cfg, STATIC_CONFIG);
+        }
     }
     return $key === null ? $cfg : ($cfg[$key] ?? $default);
 }
