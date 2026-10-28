@@ -17,7 +17,7 @@ require __DIR__ . '/includes/header.php';
         <a class="btn btn-outline" href="<?= e(url('practice-areas.php')) ?>">Our Practice Areas</a>
       </div>
     </div>
-    <?php img_placeholder('Hero image', 'hero-img'); ?>
+    <img class="hero-photo" src="<?= e(url('assets/img/hero-justice.jpg')) ?>" alt="Statue of Lady Justice holding the scales" width="736" height="385">
   </div>
 </section>
 
