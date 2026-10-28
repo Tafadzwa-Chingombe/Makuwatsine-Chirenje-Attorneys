@@ -12,8 +12,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/Makuwatsine-Chirenje-Attorneys/assets/css/style.css?v=1793174634">
-<style>.preview-ribbon{background:#C99A2E;color:#07152A;text-align:center;font:600 13px/1.4 Inter,system-ui,sans-serif;padding:8px 12px}</style></head>
-<body><div class="preview-ribbon">Design preview — static demo. The blog CMS, admin and contact form run on the cPanel (PHP + MySQL) build.</div>
+<meta name="mc-base" content="/Makuwatsine-Chirenje-Attorneys/"><style>.preview-ribbon a{color:#07152A;text-decoration:underline}.preview-ribbon{background:#C99A2E;color:#07152A;text-align:center;font:600 13px/1.4 Inter,system-ui,sans-serif;padding:8px 12px}</style></head>
+<body><div class="preview-ribbon">Demo site — <a href="/Makuwatsine-Chirenje-Attorneys/admin/">try the blog CMS demo →</a> (the live build runs the CMS on cPanel with PHP + MySQL)</div>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header" id="top">
   <div class="container nav-row">
@@ -121,19 +121,5 @@
   </div>
 </footer>
 <script src="/Makuwatsine-Chirenje-Attorneys/assets/js/main.js" defer></script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  var f = document.getElementById('form');
-  if (!f) return;
-  f.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var n = document.createElement('div');
-    n.className = 'alert alert-success';
-    n.setAttribute('role', 'status');
-    n.textContent = 'Preview only — on the live site this message is emailed to the firm and saved in the CMS inbox.';
-    var old = f.querySelector('.alert'); if (old) old.remove();
-    f.insertBefore(n, f.children[1]);
-  });
-});
-</script></body>
+<script src="/Makuwatsine-Chirenje-Attorneys/assets/js/demo-seed.js"></script><script src="/Makuwatsine-Chirenje-Attorneys/assets/js/demo-store.js"></script><script src="/Makuwatsine-Chirenje-Attorneys/assets/js/demo-public.js"></script></body>
 </html>
