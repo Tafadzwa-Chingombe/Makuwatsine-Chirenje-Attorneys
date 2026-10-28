@@ -32,7 +32,11 @@ $people = team();
       <h2>Committed practitioners serving justice.</h2>
     </div>
     <div class="grid grid-2">
-      <?php foreach (array_slice($people, 2) as $p): ?>
+      <?php
+      // Senior associates: longest profiles first, shortest last.
+      $associates = array_slice($people, 2);
+      usort($associates, fn($a, $b) => strlen($b['bio']) <=> strlen($a['bio']));
+      foreach ($associates as $p): ?>
         <article class="card assoc<?= strlen($p['bio']) > 500 ? ' assoc-wide' : '' ?>">
           <?php team_photo($p); ?>
           <div>
