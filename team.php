@@ -18,7 +18,7 @@ $people = team();
           <p class="eyebrow"><?= e($p['role']) ?></p>
           <h2><?= e($p['name']) ?></h2>
           <p class="degree"><?= e($p['degree']) ?></p>
-          <p><?= e($p['bio']) ?></p>
+          <?php foreach (explode("\n", $p['bio']) as $para): ?><p><?= e($para) ?></p><?php endforeach; ?>
         </div>
       </article>
     <?php endforeach; ?>
