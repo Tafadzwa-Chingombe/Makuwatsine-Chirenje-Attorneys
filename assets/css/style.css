@@ -327,9 +327,12 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--gold-500); 
 .service-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
 .service-list li { position: relative; padding-left: 20px; font-size: 15px; line-height: 24px; color: var(--body); }
 .service-list li::before { content: "•"; position: absolute; left: 0; top: 0; color: var(--gold-500); font-size: 14px; }
+.service-card-wide { grid-column: 1 / -1; }
+.service-card-wide > .service-list { display: block; column-count: 2; column-gap: 56px; }
+.service-card-wide > .service-list > li { break-inside: avoid; margin-bottom: 12px; }
 .service-list.sub { padding-left: 4px; margin-top: 12px; }
 .cta-banner.has-bg { position: relative; background-size: cover; background-position: center; }
 .cta-banner.has-bg::before { content: ""; position: absolute; inset: 0; background: rgba(7,21,42,.55); }
 .cta-banner.has-bg > .container { position: relative; }
 @media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr); } .services-intro { padding: 72px 0; } }
-@media (max-width: 640px) { .services-grid { grid-template-columns: 1fr; } .services-intro { padding: 56px 0; } .services-grid-section { padding: 48px 0 72px; } .service-head h3 { font-size: 21px; } }
+@media (max-width: 640px) { .services-grid { grid-template-columns: 1fr; } .service-card-wide > .service-list { column-count: 1; } .services-intro { padding: 56px 0; } .services-grid-section { padding: 48px 0 72px; } .service-head h3 { font-size: 21px; } }
