@@ -56,8 +56,8 @@ function team(): array
             'bio' => "His introduction to the legal fraternity began with working for Makuku Law Firm in 2016 as an Associate. He started studying Law with University of Zimbabwe in 2010 and graduated in 2015 and admitted to practice on the 17th of February 2016.\nHe joined Makuku Law Firm in February 2016 to December 2022 as an Associate. Wherein he was tasked with making the criminal department visible. ln this regard he was solely responsible for handling criminal matters including police trials. During this period he acquired vast knowledge in criminal litigation and also did some notarial and conveyancing work and a notary public and conveyancer. He later on started to grew interest in other areas of practice and started to do civil litigation, Administration of Estates, mining law and commercial law.\nIn 2023 he joined Macharaga Law Chambers as an associate to until 1st April 2025 when he joined forces with Tendai Makuwatsine and became a Founding Partner of Makuwatsine Chirenje Attorneys. his area of practice includes Criminal, Conveyancing, Notarial Practice, Civil litigation and Commercial law.",
         ],
         [
-            'name' => 'Taurayi Cyril Chirinda', 'role' => 'Senior Associate', 'degree' => 'LLB (Hons) SA',
-            'bio' => 'Specialises in civil and criminal litigation, with interests in family, immigration, medical, mining, commercial, media and intellectual property law.',
+            'name' => 'Taurayi Cyril Chirinda', 'role' => 'Legal Practitioner', 'degree' => 'LLB, University of South Africa',
+            'bio' => "Taurayi Cyril Chirinda a committed and experienced legal practitioner based in Harare. His drive stems from a strong desire to serve justice and make a positive impact in the legal field. Taurayi holds an LLB degree from University of South Africa specializing in both civil and criminal litigation, with specific interests in family law, immigration law, medical law, mining law, commercial law, media law, and intellectual property.",
         ],
         [
             'name' => 'Manasa Masiiwa', 'role' => 'Senior Associate', 'degree' => 'LLB (Hons) MSU',
