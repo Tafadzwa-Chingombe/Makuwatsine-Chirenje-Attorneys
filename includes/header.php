@@ -32,7 +32,7 @@ $full_title = $page_title === FIRM['name'] ? $page_title : $page_title . ' | ' .
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="<?= e(url('assets/css/style.css')) ?>">
+<link rel="stylesheet" href="<?= e(url('assets/css/style.css')) ?>?v=<?= (int) @filemtime(__DIR__ . '/../assets/css/style.css') ?>">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
