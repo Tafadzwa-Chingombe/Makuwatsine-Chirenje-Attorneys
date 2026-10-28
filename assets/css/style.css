@@ -304,7 +304,9 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--gold-500); 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
 
 /* Practice Areas — detailed services */
-.services-intro { background: var(--navy-900); padding: 96px 0; }
+.services-intro { position: relative; background: var(--navy-900) right 62% / cover no-repeat; padding: 96px 0; }
+.services-intro::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7,21,42,.75), rgba(7,21,42,.1)); }
+.services-intro > .container { position: relative; }
 .services-intro h1 { color: var(--white); font-size: clamp(36px, 4.5vw, 56px); line-height: 1.15; margin-bottom: 24px; }
 .services-intro p { color: var(--muted); font-size: 18px; line-height: 30px; max-width: 800px; margin: 0; }
 .services-grid-section { padding: 80px 0 120px; }
