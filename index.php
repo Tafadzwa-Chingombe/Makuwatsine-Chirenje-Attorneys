@@ -6,7 +6,7 @@ require_once __DIR__ . '/includes/partials.php';
 $page_title = FIRM['name'];
 require __DIR__ . '/includes/header.php';
 ?>
-<section class="hero">
+<section class="hero" style="background-image:url(<?= e(url('assets/img/hero-courtroom.jpg')) ?>)">
   <div class="container hero-grid">
     <div>
       <p class="eyebrow">Harare · Established 2025</p>
