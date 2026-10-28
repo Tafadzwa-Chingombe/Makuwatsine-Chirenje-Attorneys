@@ -145,6 +145,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .assoc .img-ph, .assoc .team-photo { height: 220px; aspect-ratio: auto; border-radius: 6px; min-height: 0; }
 .team-photo { display: block; width: 100%; object-fit: cover; object-position: 50% 25%; border-radius: 8px; }
 .partner .team-photo { height: 500px; }
+.assoc-wide { grid-column: 1 / -1; }
 .assoc h3 { font-size: 24px; margin-bottom: 4px; }
 .assoc .role { color: var(--gold-500); font-size: 13px; font-weight: 500; margin-bottom: 12px; }
 
@@ -263,6 +264,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--gold-500); 
   .partner-img .img-ph { aspect-ratio: auto; min-height: 420px; }
   .partner .team-photo { height: 420px; }
   .assoc { grid-template-columns: 1fr; }
+  .assoc-wide { grid-column: auto; }
   .assoc .img-ph { min-height: 240px; }
   .posts { grid-template-columns: repeat(2, 1fr); gap: 40px 28px; }
   .featured .img-ph, .featured img { min-height: 300px; }
