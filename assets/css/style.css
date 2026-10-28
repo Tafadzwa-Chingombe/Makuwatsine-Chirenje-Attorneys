@@ -315,6 +315,8 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--gold-500); 
 .service-list li { position: relative; padding-left: 20px; font-size: 15px; line-height: 24px; color: var(--body); }
 .service-list li::before { content: "•"; position: absolute; left: 0; top: 0; color: var(--gold-500); font-size: 14px; }
 .service-list.sub { padding-left: 4px; margin-top: 12px; }
-.cta-banner.has-bg { background-size: cover; background-position: center; }
+.cta-banner.has-bg { position: relative; background-size: cover; background-position: center; }
+.cta-banner.has-bg::before { content: ""; position: absolute; inset: 0; background: rgba(7,21,42,.55); }
+.cta-banner.has-bg > .container { position: relative; }
 @media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr); } .services-intro { padding: 72px 0; } }
 @media (max-width: 640px) { .services-grid { grid-template-columns: 1fr; } .services-intro { padding: 56px 0; } .services-grid-section { padding: 48px 0 72px; } .service-head h3 { font-size: 21px; } }
