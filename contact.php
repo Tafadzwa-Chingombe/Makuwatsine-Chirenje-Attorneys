@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 require __DIR__ . '/includes/header.php';
-page_hero('Contact us', 'Let’s talk about your legal matter.', 'Call, email or visit our offices in Eastlea, Harare — or send a message and we will get back to you.');
+page_hero('Contact us', 'Let’s talk about your legal matter.', 'Call, email or visit our offices in Eastlea, Harare — or send a message and we will get back to you.', 'assets/img/about-handshake.jpg');
 ?>
 <section class="section">
   <div class="container contact-grid">
