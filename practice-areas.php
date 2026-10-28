@@ -4,7 +4,7 @@ require_once __DIR__ . '/includes/data.php';
 require_once __DIR__ . '/includes/partials.php';
 $active = 'practice';
 $page_title = 'Practice Areas';
-$meta_desc = 'Conveyancing, notarial practice, litigation, arbitration, estates, labour, commercial and corporate, energy and mining, insurance, intellectual property, insolvency and tax law in Harare, Zimbabwe.';
+$meta_desc = 'Conveyancing, notarial practice, litigation, estates, labour, commercial and corporate, energy and mining, insurance, intellectual property, insolvency and tax law in Harare, Zimbabwe.';
 require __DIR__ . '/includes/header.php';
 ?>
 <section class="services-intro" style="background-image:url(<?= e(url('assets/img/practice-hero.jpg')) ?>)">
@@ -19,9 +19,9 @@ require __DIR__ . '/includes/header.php';
       <?php
       // Grouped by content length so each row of cards is a similar height.
       $order = ['Energy and Mining Law', 'Business Rescue and Insolvency', 'Tax Advice and Litigation',
-                'General Civil Litigation', 'Intellectual Property', 'Arbitration',
-                'Conveyancing and Notarial Practice', 'Commercial and Corporate Law', 'Labour Law',
-                'Criminal Law', 'Estate Planning, Wills and Successions', 'Insurance Law'];
+                'General Civil Litigation', 'Intellectual Property', 'Conveyancing and Notarial Practice',
+                'Commercial and Corporate Law', 'Labour Law', 'Insurance Law',
+                'Criminal Law', 'Estate Planning, Wills and Successions'];
       $areas = service_areas();
       usort($areas, fn($a, $b) => array_search($a['title'], $order) <=> array_search($b['title'], $order));
       foreach ($areas as $area): ?>

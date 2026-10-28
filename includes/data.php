@@ -114,12 +114,6 @@ function service_areas(): array
             'Advice in relation to schemes of arrangement with creditors, drafting scheme documents, the necessary applications to court, and generally managing the process',
             'Settlement negotiations, mediations and other forms of alternative dispute resolution',
         ]],
-        ['title' => 'Arbitration', 'items' => [
-            'Recommend wording of dispute resolution clauses in arbitration agreements',
-            'Service as arbitrators in commercial and labour disputes in which we have no interest',
-            'Are named in divers lists of arbitrators maintained by various arbitration structures in Zimbabwe',
-            'Advise in relation to the law and procedures of arbitration, including enforcement of international awards in Zimbabwe',
-        ]],
         ['title' => 'Commercial and Corporate Law', 'items' => [
             'Investment and exchange control issues generally, but with specific reference to foreign direct investment',
             'Legal due diligence work generally, and with reference to proposed acquisitions in particular',
