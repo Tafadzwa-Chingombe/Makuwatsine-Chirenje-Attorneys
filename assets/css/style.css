@@ -68,6 +68,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 .page-hero { background: var(--navy-800); color: var(--white); padding: 96px 0; }
 .page-hero h1 { color: var(--white); max-width: 860px; line-height: 1.2; margin-bottom: 20px; }
 .page-hero .eyebrow { letter-spacing: 2.5px; margin-bottom: 20px; }
+.page-hero.has-bg { position: relative; background-size: cover; background-position: center; }
+.page-hero.has-bg::before { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(11,31,58,.95) 0, rgba(11,31,58,0) 22%), linear-gradient(90deg, rgba(11,31,58,.82), rgba(11,31,58,.35)); }
+.page-hero.has-bg .container { position: relative; }
 .page-hero .lead { color: var(--border); margin: 0; line-height: 30px; }
 
 /* Home hero */
@@ -279,3 +282,22 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--gold-500); 
 }
 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+
+/* Practice Areas — detailed services */
+.services-intro { background: var(--navy-900); padding: 96px 0; }
+.services-intro h2 { color: var(--white); font-size: clamp(36px, 4.5vw, 56px); line-height: 1.15; margin-bottom: 24px; }
+.services-intro p { color: var(--muted); font-size: 18px; line-height: 30px; max-width: 800px; margin: 0; }
+.services-grid-section { padding: 80px 0 120px; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
+.service-card { display: flex; flex-direction: column; gap: 24px; }
+.service-head { display: flex; align-items: center; gap: 16px; }
+.service-head .icon-dot { flex: none; margin: 0; }
+.service-head h3 { margin: 0; font-size: 24px; }
+.service-card p.service-intro { margin: 0; font-size: 15px; line-height: 24px; }
+.service-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.service-list li { position: relative; padding-left: 20px; font-size: 15px; line-height: 24px; color: var(--body); }
+.service-list li::before { content: "•"; position: absolute; left: 0; top: 0; color: var(--gold-500); font-size: 14px; }
+.service-list.sub { padding-left: 4px; margin-top: 12px; }
+.cta-banner.has-bg { background-size: cover; background-position: center; }
+@media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr); } .services-intro { padding: 72px 0; } }
+@media (max-width: 640px) { .services-grid { grid-template-columns: 1fr; } .services-intro { padding: 56px 0; } .services-grid-section { padding: 48px 0 72px; } .service-head h3 { font-size: 21px; } }
