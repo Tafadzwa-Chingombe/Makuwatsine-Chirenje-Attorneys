@@ -4,8 +4,7 @@
     <div class="footer-cols">
       <div class="footer-about">
         <a class="logo" href="<?= e(url('index.php')) ?>">
-          <span class="logo-mark" aria-hidden="true">MC</span>
-          <span class="logo-text"><strong>MAKUWATSINE CHIRENJE</strong><span>ATTORNEYS</span></span>
+          <img src="<?= e(url('assets/img/logo.png')) ?>" alt="<?= e(FIRM['name']) ?>" width="205" height="44">
         </a>
         <p>Legal practitioners, notaries, conveyancers, executors and commercial lawyers serving clients across Zimbabwe.</p>
       </div>
