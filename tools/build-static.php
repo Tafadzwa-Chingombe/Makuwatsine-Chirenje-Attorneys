@@ -70,9 +70,9 @@ function finish(string $html, string $base, string $depthPrefix = ''): string
     // Remove CSRF tokens (no server in the preview)
     $html = preg_replace('#<input type="hidden" name="csrf"[^>]*>#', '', $html);
     // Preview ribbon
-    $ribbon = '<div class="preview-ribbon">Design preview — static demo. The blog CMS, admin and contact form run on the cPanel (PHP + MySQL) build.</div>';
+    $ribbon = '<div class="preview-ribbon">Demo site — <a href="' . $base . '/admin/">try the blog CMS demo →</a> (the live build runs the CMS on cPanel with PHP + MySQL)</div>';
     $html = preg_replace('#(<body[^>]*>)#', '$1' . $ribbon, $html, 1);
-    $html = str_replace('</head>', '<style>.preview-ribbon{background:#C99A2E;color:#07152A;text-align:center;font:600 13px/1.4 Inter,system-ui,sans-serif;padding:8px 12px}</style></head>', $html);
+    $html = str_replace('</head>', '<meta name="mc-base" content="' . $base . '/"><style>.preview-ribbon a{color:#07152A;text-decoration:underline}.preview-ribbon{background:#C99A2E;color:#07152A;text-align:center;font:600 13px/1.4 Inter,system-ui,sans-serif;padding:8px 12px}</style></head>', $html);
     return $html;
 }
 
@@ -89,9 +89,27 @@ mkdir($out . '/assets', 0755, true);
 exec('cp -r ' . escapeshellarg($root . '/assets/css') . ' ' . escapeshellarg($root . '/assets/js') . ' ' . escapeshellarg($out . '/assets/'));
 if (is_dir($root . '/assets/img')) { exec('cp -r ' . escapeshellarg($root . '/assets/img') . ' ' . escapeshellarg($out . '/assets/')); }
 if (is_dir(__DIR__ . '/sample-uploads')) { mkdir($out . '/uploads', 0755, true); exec('cp -r ' . escapeshellarg(__DIR__ . '/sample-uploads') . '/. ' . escapeshellarg($out . '/uploads/')); }
-@unlink($out . '/assets/css/admin.css');
 @unlink($out . '/assets/js/admin.js');
+foreach (['demo-store.js', 'demo-public.js', 'demo-admin.js'] as $f) { copy(__DIR__ . '/demo-cms/' . $f, $out . '/assets/js/' . $f); }
+copy(__DIR__ . '/demo-cms/demo-admin.css', $out . '/assets/css/demo-admin.css');
+$seed = [
+    'categories' => config('categories'),
+    'user' => ['name' => 'Demo Admin', 'email' => 'demo@mcattorneys.co.zw', 'password' => 'Demo2025!'],
+    'session' => false,
+    'posts' => array_map(fn($p, $i) => [
+        'id' => $i + 1, 'slug' => $p['slug'], 'title' => $p['title'], 'category' => $p['category'], 'author' => $p['author'],
+        'excerpt' => $p['excerpt'], 'content' => $p['content'], 'cover' => $p['cover_image'] ? 'uploads/' . $p['cover_image'] : null,
+        'status' => 'published', 'published_at' => $p['published_at'], 'updated_at' => $p['published_at'],
+    ], $posts, array_keys($posts)),
+    'enquiries' => [
+        ['id' => 2, 'name' => 'Rudo Moyo', 'email' => 'rudo.moyo@example.com', 'phone' => '0772 000 111', 'practice_area' => 'Conveyancing', 'message' => "Good day, we are buying a stand in Borrowdale and would like help with the transfer and bond registration. Please advise on fees and timelines.", 'created_at' => date('Y-m-d') . ' 08:42:00', 'is_read' => false],
+        ['id' => 1, 'name' => 'Farai Ndlovu', 'email' => 'farai@example.com', 'phone' => '', 'practice_area' => 'Labour Law', 'message' => "Hello, I run a small business and need to draft employment contracts for three new staff. Can someone call me this week?", 'created_at' => date('Y-m-d', strtotime('-3 days')) . ' 15:10:00', 'is_read' => true],
+    ],
+];
+file_put_contents($out . '/assets/js/demo-seed.js', 'window.MC_DEMO_SEED = ' . json_encode($seed, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG) . ';');
 touch($out . '/.nojekyll');
+
+$demoScripts = '<script src="' . $base . '/assets/js/demo-seed.js"></script><script src="' . $base . '/assets/js/demo-store.js"></script><script src="' . $base . '/assets/js/demo-public.js"></script>';
 
 /* ---------- Static pages (rendered from the real PHP files) ---------- */
 $contactNote = <<<'JS'
@@ -114,7 +132,7 @@ JS;
 
 foreach (['index', 'about', 'practice-areas', 'team', 'contact'] as $p) {
     $html = finish(render_file($root . '/' . $p . '.php'), $base);
-    if ($p === 'contact') { $html = str_replace('</body>', $contactNote . '</body>', $html); }
+    if ($p === 'contact') { $html = str_replace('</body>', $demoScripts . '</body>', $html); }
     write_page($out, $p . '.html', $html);
 }
 
@@ -180,7 +198,7 @@ $rest = array_slice($posts, 1);
 <?php
 require $root . '/includes/footer.php';
 $html = finish(ob_get_clean(), $base);
-write_page($out, 'blog.html', str_replace('</body>', $filterJs . '</body>', $html));
+write_page($out, 'blog.html', str_replace('</body>', $demoScripts . '</body>', $html));
 
 /* ---------- Article pages ---------- */
 foreach ($posts as $post) {
@@ -207,8 +225,20 @@ foreach ($posts as $post) {
     <?php
     cta_banner('Need advice?', 'Speak to MC Attorneys about your matter.');
     require $root . '/includes/footer.php';
-    write_page($out, 'blog/' . $post['slug'] . '.html', finish(ob_get_clean(), $base));
+    $articleHtml = str_replace('</body>', $demoScripts . '</body>', finish(ob_get_clean(), $base));
+    write_page($out, 'blog/' . $post['slug'] . '.html', $articleHtml);
+    if ($post === $posts[0]) { write_page($out, 'blog/article.html', $articleHtml); }
 }
+
+/* ---------- CMS demo (browser-only admin) ---------- */
+$adminHtml = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">'
+    . '<meta name="robots" content="noindex, nofollow"><meta name="mc-base" content="' . $base . '/"><title>Content Manager (demo) — MC Attorneys</title>'
+    . '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">'
+    . '<link rel="stylesheet" href="' . $base . '/assets/css/admin.css"><link rel="stylesheet" href="' . $base . '/assets/css/demo-admin.css">'
+    . '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.snow.css"></head><body class="admin"><div id="app"></div>'
+    . '<script src="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.min.js"></script>'
+    . '<script src="' . $base . '/assets/js/demo-seed.js"></script><script src="' . $base . '/assets/js/demo-store.js"></script><script src="' . $base . '/assets/js/demo-admin.js"></script></body></html>';
+write_page($out, 'admin/index.html', $adminHtml);
 
 /* ---------- 404 ---------- */
 ob_start();

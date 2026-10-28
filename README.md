@@ -54,3 +54,13 @@ install/    one-time installer (delete after use)
 sql/        schema.sql
 uploads/    article images (git-ignored)
 ```
+
+## CMS demo for GitHub Pages (client showcase)
+`php tools/build-static.php <outdir> /<repo-name>` also produces a **browser-only CMS demo** at `/admin/` on the static preview, so the client can try the admin without a server:
+
+- Log in with the pre-filled demo account (`demo@mcattorneys.co.zw` / `Demo2025!`).
+- Create, edit, schedule, publish and delete articles, with a rich-text editor and cover/inline image upload. Published articles appear on the Blog page and open as full articles immediately.
+- Messages sent from the Contact page land in the Enquiries inbox; the password page and "Reset demo data" button also work.
+- Everything is saved in the visitor's own browser (`localStorage`) — nothing is sent to a server and other visitors never see it. The real CMS (PHP + MySQL, above) is unchanged.
+
+Source: `tools/demo-cms/` (`demo-store.js`, `demo-public.js`, `demo-admin.js`, `demo-admin.css`).
