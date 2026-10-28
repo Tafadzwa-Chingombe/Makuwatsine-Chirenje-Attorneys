@@ -38,7 +38,7 @@ $people = team();
       $associates = array_slice($people, 2);
       usort($associates, fn($a, $b) => strlen($b['bio']) <=> strlen($a['bio']));
       foreach ($associates as $p): ?>
-        <article class="card assoc<?= strlen($p['bio']) > 500 ? ' assoc-wide' : '' ?>">
+        <article class="card assoc<?= strlen($p['bio']) > 300 ? ' assoc-wide' : '' ?>">
           <?php team_photo($p); ?>
           <div>
             <h3><?= e($p['name']) ?></h3>
