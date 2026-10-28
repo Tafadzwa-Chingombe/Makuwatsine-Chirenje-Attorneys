@@ -31,8 +31,8 @@ require __DIR__ . '/includes/header.php';
 </section>
 
 <section class="section">
-  <div class="container split">
-    <?php img_placeholder('About image', 'sq'); ?>
+  <div class="container split about-split">
+    <img class="about-photo" src="<?= e(url('assets/img/about-handshake.jpg')) ?>" alt="A handshake across a desk over a signed document" width="417" height="626" loading="lazy">
     <div>
       <p class="eyebrow">About the firm</p>
       <h2>Excellence in service, with clients at the centre.</h2>
