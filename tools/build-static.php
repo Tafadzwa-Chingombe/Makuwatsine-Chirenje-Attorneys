@@ -199,7 +199,7 @@ foreach ($posts as $post) {
         <h1><?= e($post['title']) ?></h1>
         <p class="meta"><?= e(format_date($post['published_at'])) ?> · <?= reading_minutes($post['content']) ?> min read · By <?= e($post['author']) ?></p>
       </header>
-      <div class="article-cover"><?php img_placeholder('Cover image', 'wide'); ?></div>
+      <?php if ($post['cover_image']): ?><figure class="article-cover"><img src="<?= e(upload_url($post['cover_image'])) ?>" alt=""></figure><?php else: ?><div class="article-cover"><?php img_placeholder('Cover image', 'wide'); ?></div><?php endif; ?>
       <div class="prose"><?= $post['content'] ?></div>
     </article>
   </div>
