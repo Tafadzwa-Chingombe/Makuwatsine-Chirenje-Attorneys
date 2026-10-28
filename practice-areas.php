@@ -4,14 +4,43 @@ require_once __DIR__ . '/includes/data.php';
 require_once __DIR__ . '/includes/partials.php';
 $active = 'practice';
 $page_title = 'Practice Areas';
-$meta_desc = 'Litigation, conveyancing, notarial services, estates, labour, corporate, commercial and mining law, debt collection and patents & trademarks in Harare.';
+$meta_desc = 'Conveyancing, notarial practice, litigation, arbitration, estates, labour, commercial and corporate, energy and mining, insurance, intellectual property, insolvency and tax law in Harare, Zimbabwe.';
 require __DIR__ . '/includes/header.php';
-page_hero('Practice areas', 'Comprehensive legal services under one roof.', 'From litigation and conveyancing to estates, labour, mining and commercial law — practical advice for individuals and businesses.');
+page_hero('Practice areas', 'Comprehensive legal services under one roof.', 'From litigation and conveyancing to estates, labour, mining and commercial law — practical advice for individuals and businesses.', 'assets/img/services-hero.jpg');
 ?>
-<section class="section alt">
+<section class="services-intro">
   <div class="container">
-    <div class="grid grid-3">
-      <?php foreach (practice_areas() as [$t, $d]) area_card($t, $d); ?>
+    <h2>Practice Areas</h2>
+    <p>Makuwatsine Chirenje Attorneys offers a comprehensive range of legal services across Zimbabwe, combining deep local expertise with international standards of excellence.</p>
+  </div>
+</section>
+<section class="section alt services-grid-section">
+  <div class="container">
+    <div class="services-grid">
+      <?php foreach (service_areas() as $area): ?>
+        <article class="card service-card">
+          <div class="service-head">
+            <span class="icon-dot" aria-hidden="true">◆</span>
+            <h3><?= e($area['title']) ?></h3>
+          </div>
+          <?php if (!empty($area['intro'])): ?><p class="service-intro"><?= e($area['intro']) ?></p><?php endif; ?>
+          <?php if (!empty($area['items'])): ?>
+            <ul class="service-list">
+              <?php foreach ($area['items'] as $item): ?>
+                <?php if (is_array($item)): ?>
+                  <li><?= e($item[0]) ?>
+                    <ul class="service-list sub">
+                      <?php foreach ($item[1] as $sub): ?><li><?= e($sub) ?></li><?php endforeach; ?>
+                    </ul>
+                  </li>
+                <?php else: ?>
+                  <li><?= e($item) ?></li>
+                <?php endif; ?>
+              <?php endforeach; ?>
+            </ul>
+          <?php endif; ?>
+        </article>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>

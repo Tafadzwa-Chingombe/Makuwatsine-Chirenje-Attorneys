@@ -6,10 +6,10 @@ function img_placeholder(string $label = 'Image placeholder', string $class = ''
     echo '<div class="img-ph ' . e($class) . '" role="img" aria-label="' . e($label) . '"><span>IMAGE PLACEHOLDER</span></div>';
 }
 
-function page_hero(string $eyebrow, string $title, string $sub = ''): void
+function page_hero(string $eyebrow, string $title, string $sub = '', string $bg = ''): void
 {
     ?>
-    <section class="page-hero">
+    <section class="page-hero<?= $bg ? ' has-bg' : '' ?>"<?= $bg ? ' style="background-image:url(' . e(url($bg)) . ')"' : '' ?>>
       <div class="container">
         <p class="eyebrow"><?= e($eyebrow) ?></p>
         <h1><?= e($title) ?></h1>

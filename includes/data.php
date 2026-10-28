@@ -65,3 +65,102 @@ function team(): array
         ],
     ];
 }
+
+
+/** Detailed practice-area content for the Practice Areas page. Items may be a string or [text, [sub-items]]. */
+function service_areas(): array
+{
+    return [
+        ['title' => 'Conveyancing and Notarial Practice', 'items' => [
+            'Registration and transfers of fixed property',
+            'Registration of mortgage bonds over fixed property',
+            'Registration of notarial bonds over moveable property',
+            'Advice on tax matters involved in property transfers',
+            'Advice on security registration generally',
+            'All legal issues pertaining to fixed properties, such as usufructs, servitudes and related real rights',
+            'Advice on share block schemes and sectional title schemes',
+        ]],
+        ['title' => 'Criminal Law', 'intro' => 'We handle criminal law issues which may be faced by our corporate clients.'],
+        ['title' => 'Energy and Mining Law', 'items' => [
+            'Advice in respect of the legislative and regulatory requirements relating to energy and mining projects including environmental and safety issues',
+            'Advice in respect of Zimbabwe Investment Authority applications, Special Economic Zones and immigration requirements',
+            'Drafting of transaction documentation',
+            'Drafting or reviewing project finance agreements',
+            'Investment issues particularly pertinent to the mining sector',
+            'Advice relating to and registration of security',
+        ]],
+        ['title' => 'Estate Planning, Wills and Successions', 'items' => [
+            'Estate planning with consideration to trusts, company structures, tax and estate duty',
+            'Drafting of trusts',
+            'Drafting of wills',
+            'Winding up of estates.',
+        ]],
+        ['title' => 'General Civil Litigation', 'intro' => 'We service all areas of civil dispute resolution that our corporate or private clients may need assistance with.', 'items' => [
+            'All manner of civil litigation arising from commercial transactions of every kind',
+            'Debt collection work on behalf of commercial clients',
+            'Applications for liquidation and judicial management, acting both on behalf of creditors and on behalf of the corporate entity itself',
+            'Advice in relation to schemes of arrangement with creditors, drafting scheme documents, the necessary applications to court, and generally managing the process',
+            'Settlement negotiations, mediations and other forms of alternative dispute resolution',
+        ]],
+        ['title' => 'Arbitration', 'items' => [
+            'Recommend wording of dispute resolution clauses in arbitration agreements',
+            'Service as arbitrators in commercial and labour disputes in which we have no interest',
+            'Are named in divers lists of arbitrators maintained by various arbitration structures in Zimbabwe',
+            'Advise in relation to the law and procedures of arbitration, including enforcement of international awards in Zimbabwe',
+        ]],
+        ['title' => 'Commercial and Corporate Law', 'items' => [
+            'Investment and exchange control issues generally, but with specific reference to foreign direct investment',
+            'Legal due diligence work generally, and with reference to proposed acquisitions in particular',
+            'Advice in relation to Zimbabwe’s indigenisation laws and policy',
+            'Guidance in relation to the various legal regimes applicable to particular fields of business activity in Zimbabwe, with particular reference to mining, banking, insurance and manufacturing',
+            'Zimbabwe’s competition law',
+            'Mergers, acquisitions and restructurings',
+            'Advice in relation to Zimbabwe’s environmental laws',
+            'Compliance with Zimbabwe’s Companies Act and subsidiary legislation',
+            'Compliance with the Zimbabwe Stock Exchange Listing Requirements',
+            'Drafting of all necessary commercial contracts',
+        ]],
+        ['title' => 'Insurance Law', 'items' => [
+            'Reviewing insurance contracts',
+            'Provision of regulatory advice',
+            'Advising on insurance claims',
+            'Insurance related litigation',
+            'Advising on insurance legislation',
+        ]],
+        ['title' => 'Intellectual Property', 'intro' => 'Our department advises both local and international clients as to the general protection of intellectual property rights, collaborates with a variety of international IP practitioners in relation to the registration of IP rights regionally and internationally, and maintains a close relationship with the African Regional Intellectual Property Organisation (ARIPO).', 'items' => [
+            'Trade Marks',
+            'Patents / Utility Models (Petty Patents)',
+            'Copyright',
+            'Designs',
+            'Domain names',
+            'Plant Breeders’ Rights Registrations',
+        ]],
+        ['title' => 'Labour Law', 'items' => [
+            'Advise on the labour law regime applicable in Zimbabwe in all its aspects, including minimum conditions of employment, unfair labour practices, the requirements for an employment contract, the applicability of collective bargaining agreements, codes of conduct, retrenchments and termination of employment',
+            'Draft contracts of employment',
+            'Manage retrenchment processes – both voluntary and compulsory',
+            'Manage disciplinary proceedings',
+            'Advise clients in relation to labour disputes',
+            'Represent clients in labour arbitration or before the Labour Court and related appeals',
+            'Draft confidentiality undertakings and agreements in restraint of trade.',
+        ]],
+        ['title' => 'Business Rescue and Insolvency', 'items' => [
+            'Advice on various business rescue alternatives and their implication',
+            'Advice in respect of the Insolvency Act, the Companies Act and related legislation',
+            'Advice in relation to securities in insolvency',
+            'Drafting and prosecution of court applications relating to judicial management, liquidation and insolvency and the opposition of hostile applications',
+            'Advice relating to the liabilities resulting from judicial management, liquidation and insolvency',
+            'Advice relating to employment issues arising from judicial management, liquidation and insolvency',
+            'Advice on Schemes of Arrangement.',
+        ]],
+        ['title' => 'Tax Advice and Litigation', 'items' => [
+            'Often working in conjunction with established accounting firms, we offer advice on a wide range of issues relating to income tax, various categories of withholding tax, and VAT',
+            ['We provide advice in relation to tax litigation generally, and in particular with respect to:', [
+                'Framing objections to tax assessments',
+                'Filing appeals to the tax appeal courts in terms of the relevant provisions of the Income Tax Act and Value Added Tax Act',
+                'Prosecuting tax appeals up to the stage of hearing',
+                'Arranging representation for clients at the hearing of tax appeals',
+            ]],
+        ]],
+    ];
+}
