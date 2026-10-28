@@ -64,7 +64,7 @@ require __DIR__ . '/includes/header.php';
     <div class="grid grid-4 team-grid">
       <?php foreach (array_slice(team(), 0, 4) as $m): ?>
         <div class="member">
-          <?php img_placeholder('Portrait of ' . $m['name'], 'tall'); ?>
+          <?php team_photo($m, 'member-photo'); ?>
           <h3><?= e($m['name']) ?></h3>
           <p><?= e($m['role']) ?></p>
         </div>

@@ -123,8 +123,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 .check-list li::before { content: "◆"; font-size: 12px; color: var(--gold-500); }
 
 /* Team */
-.member h3 { font-size: 20px; margin: 16px 0 4px; }
+.member .member-photo { height: 340px; aspect-ratio: auto; min-height: 0; border-radius: 8px; }
+.member h3 { font-size: 20px; margin: 14px 0; }
 .member p { color: var(--muted); font-size: 14px; margin: 0; }
+.team-grid { gap: 24px; }
 .partner { display: grid; grid-template-columns: 420px 1fr; gap: 72px; align-items: center; }
 .partner + .partner { margin-top: 72px; }
 .partner:nth-child(even) { grid-template-columns: 1fr 420px; }
@@ -269,7 +271,8 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--gold-500); 
   .stat span { font-size: 13px; }
   .grid-3, .grid-2, .grid-4 { grid-template-columns: 1fr; }
   .grid.team-grid { grid-template-columns: repeat(2, 1fr); gap: 20px 16px; }
-  .member h3 { font-size: 16px; }
+  .member h3 { font-size: 16px; margin: 12px 0 6px; }
+  .member .member-photo { height: 220px; }
   .card { padding: 24px; }
   .partner-img .img-ph { min-height: 320px; }
   .posts { grid-template-columns: 1fr; gap: 32px; }
