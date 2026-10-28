@@ -23,9 +23,9 @@ require __DIR__ . '/includes/header.php';
 
 <section class="stats" aria-label="Firm at a glance">
   <div class="container stats-grid">
-    <div class="stat"><strong>4</strong><span>Practising partners &amp; associates</span></div>
+    <div class="stat"><strong>7</strong><span>Practising lawyers</span></div>
     <div class="stat"><strong>12</strong><span>Areas of legal practice</span></div>
-    <div class="stat"><strong>16+</strong><span>Years conveyancing experience</span></div>
+    <div class="stat"><strong>16+</strong><span>Years of legal experience</span></div>
     <div class="stat"><strong>LSZ</strong><span>Registered with the Law Society</span></div>
   </div>
 </section>
