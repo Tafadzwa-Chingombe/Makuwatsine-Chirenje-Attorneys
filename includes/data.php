@@ -162,6 +162,12 @@ function service_areas(): array
             'Represent clients in labour arbitration or before the Labour Court and related appeals',
             'Draft confidentiality undertakings and agreements in restraint of trade.',
         ]],
+        ['title' => 'Family Law', 'intro' => 'We are dedicated to providing comprehensive and empathetic legal services for the diverse legal issues that arise within the family, guiding you in a manner that recognises the sensitivity of most such issues. Our team has the experience to offer services and support in relation to', 'items' => [
+            'divorce and separation',
+            'child custody, access, guardianship',
+            'division of the matrimonial estate to ensure a fair settlement while minimising emotional strain',
+            'maintenance, wills, trusts, and estate planning',
+        ]],
         ['title' => 'Business Rescue and Insolvency', 'items' => [
             'Advice on various business rescue alternatives and their implication',
             'Advice in respect of the Insolvency Act, the Companies Act and related legislation',
