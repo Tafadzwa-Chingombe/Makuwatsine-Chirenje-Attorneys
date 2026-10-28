@@ -73,8 +73,11 @@ page_hero('Contact us', 'Let’s talk about your legal matter.', 'Call, email or
         <div class="detail"><span class="icon-dot" aria-hidden="true">◆</span><div><dt>Email</dt><dd><a href="mailto:<?= e(FIRM['email']) ?>"><?= e(FIRM['email']) ?></a></dd></div></div>
         <div class="detail"><span class="icon-dot" aria-hidden="true">◆</span><div><dt>Bankers</dt><dd><?= e(FIRM['banker']) ?></dd></div></div>
       </dl>
-      <!-- MAP PLACEHOLDER: replace with a Google Maps embed <iframe> for 6 Londonderry Avenue, Eastlea, Harare -->
-      <div class="img-ph wide" role="img" aria-label="Map placeholder"><span>MAP PLACEHOLDER — GOOGLE MAPS EMBED</span></div>
+      <?php $mapQuery = rawurlencode('6 Londonderry Avenue, Eastlea, Harare, Zimbabwe'); ?>
+      <div class="map-embed">
+        <iframe title="Map showing MC Attorneys at 6 Londonderry Avenue, Eastlea, Harare" src="https://maps.google.com/maps?q=<?= $mapQuery ?>&amp;z=16&amp;output=embed" width="600" height="360" style="border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <p class="map-link"><a href="https://www.google.com/maps/search/?api=1&amp;query=<?= $mapQuery ?>" target="_blank" rel="noopener">Open in Google Maps →</a></p>
     </div>
 
     <form class="contact-form" method="post" action="<?= e(url('contact.php')) ?>#form" id="form" novalidate>
