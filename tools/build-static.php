@@ -146,7 +146,7 @@ $active = 'blog';
 $page_title = 'Blog';
 $meta_desc = 'Legal insights and news from Makuwatsine Chirenje Attorneys (sample articles in this preview).';
 require $root . '/includes/header.php';
-page_hero('Legal insights', 'News and articles from MC Attorneys.', 'Practical guidance on property, estates, labour and commercial law.');
+page_hero('Legal insights', 'News and articles from MC Attorneys.', 'Practical guidance on property, estates, labour and commercial law.', 'assets/img/about-story.jpg');
 $featured = $posts[0];
 $rest = array_slice($posts, 1);
 ?>

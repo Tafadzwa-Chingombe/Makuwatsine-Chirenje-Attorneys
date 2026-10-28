@@ -57,7 +57,7 @@ function blog_link(int $p, string $cat): string
 }
 
 require __DIR__ . '/includes/header.php';
-page_hero('Legal insights', 'News and articles from MC Attorneys.', 'Practical guidance on property, estates, labour and commercial law.');
+page_hero('Legal insights', 'News and articles from MC Attorneys.', 'Practical guidance on property, estates, labour and commercial law.', 'assets/img/about-story.jpg');
 ?>
 <section class="section">
   <div class="container">
