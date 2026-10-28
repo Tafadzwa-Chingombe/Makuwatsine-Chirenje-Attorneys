@@ -139,7 +139,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .partner .degree { color: var(--muted); font-weight: 500; font-size: 15px; }
 .assoc { display: grid; grid-template-columns: 180px 1fr; gap: 28px; align-items: start; }
 .assoc .img-ph, .assoc .team-photo { height: 220px; aspect-ratio: auto; border-radius: 6px; min-height: 0; }
-.team-photo { display: block; width: 100%; object-fit: cover; border-radius: 8px; }
+.team-photo { display: block; width: 100%; object-fit: cover; object-position: 50% 25%; border-radius: 8px; }
 .partner .team-photo { height: 500px; }
 .assoc h3 { font-size: 24px; margin-bottom: 4px; }
 .assoc .role { color: var(--gold-500); font-size: 13px; font-weight: 500; margin-bottom: 12px; }
