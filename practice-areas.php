@@ -7,7 +7,7 @@ $page_title = 'Practice Areas';
 $meta_desc = 'Conveyancing, notarial practice, litigation, arbitration, estates, labour, commercial and corporate, energy and mining, insurance, intellectual property, insolvency and tax law in Harare, Zimbabwe.';
 require __DIR__ . '/includes/header.php';
 ?>
-<section class="services-intro">
+<section class="services-intro" style="background-image:url(<?= e(url('assets/img/practice-hero.jpg')) ?>)">
   <div class="container">
     <h1>Practice Areas</h1>
     <p>Makuwatsine Chirenje Attorneys offers a comprehensive range of legal services across Zimbabwe, combining deep local expertise with international standards of excellence.</p>
