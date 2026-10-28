@@ -9,14 +9,14 @@ require __DIR__ . '/includes/header.php';
 page_hero('About us', 'A new firm with decades of experience.', 'Makuwatsine Chirenje Attorneys (MC Attorneys) is a registered law firm in terms of the Legal Practitioners Act, formed in April 2025.', 'assets/img/about-hero.jpg');
 ?>
 <section class="section">
-  <div class="container split">
+  <div class="container split story-split">
     <div>
       <p class="eyebrow">Our story</p>
       <h2>Formed to deliver excellent legal services.</h2>
       <p>Mr Tendai Makuwatsine and Mr Liberty Chirenje left Macharaga Law Chambers to pursue their goal of offering excellent legal services. They were joined from the outset by Mr Taurayi Cyril Chirinda (formerly of Tsara &amp; Partners) and Mr Manasa Masiiwa (formerly of TK Takaendesa).</p>
       <p>In a short period the firm has served countless individual and corporate clients, and aims to climb the success curve unabated — a story of growth and expansion from inception.</p>
     </div>
-    <?php img_placeholder('Our story image', 'sq'); ?>
+    <img class="about-photo story-photo" src="<?= e(url('assets/img/about-story.jpg')) ?>" alt="A dimly lit boardroom with a long conference table" width="487" height="488" loading="lazy">
   </div>
 </section>
 
