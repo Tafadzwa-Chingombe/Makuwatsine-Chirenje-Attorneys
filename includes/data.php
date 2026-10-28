@@ -72,8 +72,8 @@ function team(): array
             'bio' => "He attained his LLB (Hons) Degree with University of Venda (South Africa) in 2014. In 2019 he was registered and admitted as a legal practitioner under the employee of Coghlan Welsh and Guests Legal Practitioner. In 2020, he joined Tadiwa and Associates Legal Practitioners were he practiced for 4 and half years under them. In July 2025, he joined Makuwatsine Chirenje Attorneys.\nMr Chimbadzwa’s academic pursuits have equipped him with a deep understanding of complex legal issues and the skills necessary to navigate now various issues. Since 2019 he acquired vast knowledge and experience from and Mr Chimbadwza expertise in criminal litigation, civil litigation, Administration of Estates, mining law, commercial law, Labour Law and Alternative Dispute Resolution.",
         ],
         [
-            'name' => 'Takawira Mugabe', 'role' => 'Senior Associate', 'degree' => 'LLB (Hons) SA',
-            'bio' => 'Specialises in civil and criminal litigation, with interests in family, immigration, medical, mining, commercial, media and intellectual property law.',
+            'name' => 'Takawira Mugabe', 'role' => 'Senior Associate', 'degree' => 'LLB, University of Zimbabwe',
+            'bio' => "Takawira Mugabe graduated from the University of Zimbabwe with an LLB. He joined the Ministry of Justice as a Prosecutor for two years and then moved to the bench as a Magistrate. He left the Judicial Service Commission after 16 years and joined Tadiwa and Associates as a Legal Practitioner. After a year with Tadiwa and Associates he then joined Makuwatsine Chirenje Attorneys.\nAn astute lawyer with vast experience in criminal and civil law, and a human rights litigation lawyer too. Also specialised in International Trade law administration of estates.",
         ],
     ];
 }
