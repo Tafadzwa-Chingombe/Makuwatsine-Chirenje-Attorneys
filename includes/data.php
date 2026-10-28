@@ -8,7 +8,7 @@ const FIRM = [
     'short'   => 'MC Attorneys',
     'address' => ['6 Londonderry Avenue', 'Eastlea', 'Harare'],
     'phones'  => ['+263 24 2720094'],
-    'email'   => 'makuwatsinechirenjelaw@gmail.com',
+    'email'   => 'admin@mcattorneys.co.zw',
     'banker'  => 'CBZ Bank Limited, Selous Avenue, Harare',
 ];
 

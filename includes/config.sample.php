@@ -18,7 +18,7 @@ return [
     'site_url' => 'https://www.example.co.zw',
 
     // Contact form recipient and sender (sender should be an address on your own domain).
-    'mail_to'   => 'makuwatsinechirenjelaw@gmail.com',
+    'mail_to'   => 'admin@mcattorneys.co.zw',
     'mail_from' => 'no-reply@example.co.zw',
 
     // Blog

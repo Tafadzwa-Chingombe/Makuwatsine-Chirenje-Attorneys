@@ -22,7 +22,7 @@ $v = [
     'db_host' => 'localhost', 'db_name' => '', 'db_user' => '', 'db_pass' => '',
     'site_url' => ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://') . ($_SERVER['HTTP_HOST'] ?? 'localhost') . $guessBase,
     'base_path' => $guessBase === '/' ? '' : $guessBase,
-    'mail_to' => 'makuwatsinechirenjelaw@gmail.com', 'mail_from' => '',
+    'mail_to' => 'admin@mcattorneys.co.zw', 'mail_from' => '',
     'admin_name' => '', 'admin_email' => '',
 ];
 
