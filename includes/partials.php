@@ -19,7 +19,7 @@ function page_hero(string $eyebrow, string $title, string $sub = '', string $bg 
     <?php
 }
 
-function cta_banner(string $eyebrow, string $title, string $extra = '', string $bg = ''): void
+function cta_banner(string $eyebrow, string $title, string $extra = '', string $bg = 'assets/img/cta-boardroom.jpg'): void
 {
     ?>
     <section class="cta-banner<?= $bg ? ' has-bg' : '' ?>"<?= $bg ? ' style="background-image:url(' . e(url($bg)) . ')"' : '' ?>>
