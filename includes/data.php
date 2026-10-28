@@ -60,8 +60,8 @@ function team(): array
             'bio' => "Taurayi Cyril Chirinda a committed and experienced legal practitioner based in Harare. His drive stems from a strong desire to serve justice and make a positive impact in the legal field. Taurayi holds an LLB degree from University of South Africa specializing in both civil and criminal litigation, with specific interests in family law, immigration law, medical law, mining law, commercial law, media law, and intellectual property.",
         ],
         [
-            'name' => 'Manasa Masiiwa', 'role' => 'Senior Associate', 'degree' => 'LLB (Hons) MSU',
-            'bio' => 'Former Judge’s Assistant and Magistrate (2015–2022), bringing bench experience to private practice since joining as a pioneer of the firm.',
+            'name' => 'Manasa Masiiwa', 'role' => 'Senior Associate', 'degree' => 'LLB (Hons) MSU, Zimbabwe',
+            'bio' => "After graduating with Midlands State University law school in December 2013, he briefly joined Mhaka Attorneys in 2014. In January 2015 he joined Judicial Service Commission as a Judge’s Assistant stationed at Bulawayo High Court. In June 2015 he switched from being a judge’s Assistant to be a Magistrate and worked as such till the year 2022 when he resigned and joined private practice first with Chitere Chidawanyika and partners in 2022, then T.K Takaindisa Law Chambers in 2023 up to 2025 March. On the 1st of April he joined Makuwatsine Chirenje Attorneys as a pioneer of the firm when it was starting",
         ],
         [
             'name' => 'Alexis Murombo', 'role' => 'Senior Associate', 'degree' => 'LLBS. UZ',
