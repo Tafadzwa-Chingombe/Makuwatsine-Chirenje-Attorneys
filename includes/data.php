@@ -63,6 +63,18 @@ function team(): array
             'name' => 'Manasa Masiiwa', 'role' => 'Senior Associate', 'degree' => 'LLB (Hons) MSU',
             'bio' => 'Former Judge’s Assistant and Magistrate (2015–2022), bringing bench experience to private practice since joining as a pioneer of the firm.',
         ],
+        [
+            'name' => 'Alexis Murombo', 'role' => 'Senior Associate', 'degree' => 'LLB (Hons) SA',
+            'bio' => 'Specialises in civil and criminal litigation, with interests in family, immigration, medical, mining, commercial, media and intellectual property law.',
+        ],
+        [
+            'name' => 'Tatenda Chimbadzwa', 'role' => 'Senior Associate', 'degree' => 'LLB (Hons) MSU',
+            'bio' => 'Former Judge’s Assistant and Magistrate (2015–2022), bringing bench experience to private practice since joining as a pioneer of the firm.',
+        ],
+        [
+            'name' => 'Takawira Mugabe', 'role' => 'Senior Associate', 'degree' => 'LLB (Hons) SA',
+            'bio' => 'Specialises in civil and criminal litigation, with interests in family, immigration, medical, mining, commercial, media and intellectual property law.',
+        ],
     ];
 }
 

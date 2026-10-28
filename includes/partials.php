@@ -61,3 +61,15 @@ function post_card(array $p): void
     </article>
     <?php
 }
+
+/** Portrait for a team member: uses assets/img/team/<slug>.jpg when present, otherwise a placeholder. */
+function team_photo(array $p, string $class = 'tall'): void
+{
+    $slug = strtolower(trim(preg_replace('/[^a-z0-9]+/i', '-', $p['name']), '-'));
+    $rel = 'assets/img/team/' . $slug . '.jpg';
+    if (is_file(__DIR__ . '/../' . $rel)) {
+        echo '<img class="team-photo ' . e($class) . '" src="' . e(url($rel)) . '" alt="Portrait of ' . e($p['name']) . '" loading="lazy">';
+        return;
+    }
+    img_placeholder('Portrait of ' . $p['name'], $class);
+}

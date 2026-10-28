@@ -9,11 +9,11 @@ require __DIR__ . '/includes/header.php';
 page_hero('Our team', 'Lawyers from diverse backgrounds, one shared standard.', 'A managing partner, a founding partner and two senior associates, supported by professional assistants and dedicated staff.');
 $people = team();
 ?>
-<section class="section">
+<section class="section partners">
   <div class="container">
     <?php foreach (array_slice($people, 0, 2) as $p): ?>
       <article class="partner">
-        <div class="partner-img"><?php img_placeholder('Portrait of ' . $p['name'], 'tall'); ?></div>
+        <div class="partner-img"><?php team_photo($p); ?></div>
         <div>
           <p class="eyebrow"><?= e($p['role']) ?></p>
           <h2><?= e($p['name']) ?></h2>
@@ -34,7 +34,7 @@ $people = team();
     <div class="grid grid-2">
       <?php foreach (array_slice($people, 2) as $p): ?>
         <article class="card assoc">
-          <?php img_placeholder('Portrait of ' . $p['name'], 'tall'); ?>
+          <?php team_photo($p); ?>
           <div>
             <h3><?= e($p['name']) ?></h3>
             <p class="role"><?= e($p['degree']) ?> — <?= e($p['role']) ?></p>
