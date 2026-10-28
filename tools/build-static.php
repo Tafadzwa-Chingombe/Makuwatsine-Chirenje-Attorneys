@@ -48,7 +48,7 @@ $samples = [
 ];
 $posts = array_map(fn($s) => [
     'slug' => $s[0], 'category' => $s[1], 'title' => $s[2], 'author' => $s[3], 'published_at' => $s[4] . ' 09:00:00', 'created_at' => $s[4] . ' 09:00:00',
-    'excerpt' => $s[5], 'content' => $s[6], 'cover_image' => null, 'status' => 'published',
+    'excerpt' => $s[5], 'content' => $s[6], 'cover_image' => ($s[0] === 'what-to-know-before-transferring-property' ? 'conveyancing.jpg' : null), 'status' => 'published',
 ], $samples);
 
 /* ---------- Rendering helpers ---------- */
@@ -88,6 +88,7 @@ if (is_dir($out)) { exec('rm -rf ' . escapeshellarg($out)); }
 mkdir($out . '/assets', 0755, true);
 exec('cp -r ' . escapeshellarg($root . '/assets/css') . ' ' . escapeshellarg($root . '/assets/js') . ' ' . escapeshellarg($out . '/assets/'));
 if (is_dir($root . '/assets/img')) { exec('cp -r ' . escapeshellarg($root . '/assets/img') . ' ' . escapeshellarg($out . '/assets/')); }
+if (is_dir(__DIR__ . '/sample-uploads')) { mkdir($out . '/uploads', 0755, true); exec('cp -r ' . escapeshellarg(__DIR__ . '/sample-uploads') . '/. ' . escapeshellarg($out . '/uploads/')); }
 @unlink($out . '/assets/css/admin.css');
 @unlink($out . '/assets/js/admin.js');
 touch($out . '/.nojekyll');
@@ -159,7 +160,7 @@ $rest = array_slice($posts, 1);
       <?php endforeach; ?>
     </nav>
     <article class="featured" data-post-cat="<?= e($featured['category']) ?>">
-      <a href="<?= e(post_url($featured['slug'])) ?>" tabindex="-1" aria-hidden="true"><?php img_placeholder('Featured article image'); ?></a>
+      <a href="<?= e(post_url($featured['slug'])) ?>" tabindex="-1" aria-hidden="true"><?php if ($featured['cover_image']): ?><img src="<?= e(upload_url($featured['cover_image'])) ?>" alt=""><?php else: img_placeholder('Featured article image'); endif; ?></a>
       <div class="featured-body">
         <p class="eyebrow">Featured · <?= e($featured['category']) ?></p>
         <h2><a href="<?= e(post_url($featured['slug'])) ?>"><?= e($featured['title']) ?></a></h2>
