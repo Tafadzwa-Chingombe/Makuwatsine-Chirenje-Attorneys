@@ -74,5 +74,5 @@ require __DIR__ . '/includes/header.php';
 </section>
 
 <?php
-cta_banner('Get in touch', 'Need legal advice? Speak to MC Attorneys today.', implode(', ', FIRM['address']) . ' · ' . FIRM['phones'][0]);
+cta_banner('Get in touch', 'Need legal advice? Speak to MC Attorneys today.', implode(', ', FIRM['address']) . ' · ' . FIRM['phones'][0], 'assets/img/cta-boardroom.jpg');
 require __DIR__ . '/includes/footer.php';

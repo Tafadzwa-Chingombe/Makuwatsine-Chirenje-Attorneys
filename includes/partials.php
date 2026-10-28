@@ -19,10 +19,10 @@ function page_hero(string $eyebrow, string $title, string $sub = '', string $bg 
     <?php
 }
 
-function cta_banner(string $eyebrow, string $title, string $extra = ''): void
+function cta_banner(string $eyebrow, string $title, string $extra = '', string $bg = ''): void
 {
     ?>
-    <section class="cta-banner">
+    <section class="cta-banner<?= $bg ? ' has-bg' : '' ?>"<?= $bg ? ' style="background-image:url(' . e(url($bg)) . ')"' : '' ?>>
       <div class="container">
         <p class="eyebrow"><?= e($eyebrow) ?></p>
         <h2><?= e($title) ?></h2>
