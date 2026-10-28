@@ -43,7 +43,7 @@ admin_header('Log in');
 ?>
 <div class="login-wrap">
   <form class="login-card" method="post" autocomplete="on">
-    <div class="login-logo"><span class="logo-mark">MC</span></div>
+    <div class="login-logo"><img src="<?= e(url('assets/img/logo-large.png')) ?>" alt="Makuwatsine Chirenje Attorneys"></div>
     <h1>Content Manager</h1>
     <p class="sub">Makuwatsine Chirenje Attorneys</p>
     <?php if ($error): ?><div class="notice notice-error" role="alert"><?= e($error) ?></div><?php endif; ?>

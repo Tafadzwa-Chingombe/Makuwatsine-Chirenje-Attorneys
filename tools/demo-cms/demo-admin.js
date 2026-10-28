@@ -43,7 +43,7 @@
     var f = flashMsg ? '<div class="notice notice-' + esc(flashMsg.type) + '" role="status">' + esc(flashMsg.msg) + '</div>' : '';
     flashMsg = null;
     app.innerHTML = BANNER +
-      '<header class="admin-bar"><a class="admin-brand" href="#/"><span class="logo-mark">MC</span><span>Content Manager</span></a>' +
+      '<header class="admin-bar"><a class="admin-brand" href="#/"><img src="' + esc(base + 'assets/img/logo-large.png') + '" alt="Makuwatsine Chirenje Attorneys"><span class="brand-sub">Content Manager</span></a>' +
       '<nav><a href="#/"' + (nav === 'posts' ? ' class="on"' : '') + '>Articles</a>' +
       '<a href="#/edit"' + (nav === 'new' ? ' class="on"' : '') + '>New article</a>' +
       '<a href="#/enquiries"' + (nav === 'enq' ? ' class="on"' : '') + '>Enquiries' + (unread ? ' (' + unread + ')' : '') + '</a>' +
@@ -62,7 +62,7 @@
   /* ---------- login ---------- */
   function viewLogin() {
     app.innerHTML = BANNER + '<div class="login-wrap demo-login"><form class="login-card" id="login" autocomplete="on">' +
-      '<div class="login-logo"><span class="logo-mark">MC</span></div><h1>Content Manager</h1><p class="sub">Makuwatsine Chirenje Attorneys</p>' +
+      '<div class="login-logo"><img src="' + esc(base + 'assets/img/logo-large.png') + '" alt="Makuwatsine Chirenje Attorneys"></div><h1>Content Manager</h1><p class="sub">Makuwatsine Chirenje Attorneys</p>' +
       (flashMsg ? '<div class="notice notice-' + esc(flashMsg.type) + '" role="alert">' + esc(flashMsg.msg) + '</div>' : '') +
       '<label for="email">Email</label><input type="email" id="email" required autocomplete="username" value="' + esc(st.user.email) + '">' +
       '<label for="password">Password</label><input type="password" id="password" required autocomplete="current-password" value="' + esc(st.user.password) + '">' +

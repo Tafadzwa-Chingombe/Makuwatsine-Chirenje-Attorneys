@@ -21,7 +21,7 @@ function admin_header(string $title, string $nav = ''): void
 <body class="admin">
 <?php if ($user): ?>
 <header class="admin-bar">
-  <a class="admin-brand" href="<?= e(url('admin/index.php')) ?>"><span class="logo-mark">MC</span><span>Content Manager</span></a>
+  <a class="admin-brand" href="<?= e(url('admin/index.php')) ?>"><img src="<?= e(url('assets/img/logo-large.png')) ?>" alt="Makuwatsine Chirenje Attorneys"><span class="brand-sub">Content Manager</span></a>
   <nav>
     <a href="<?= e(url('admin/index.php')) ?>" <?= $nav === 'posts' ? 'class="on"' : '' ?>>Articles</a>
     <a href="<?= e(url('admin/edit.php')) ?>" <?= $nav === 'new' ? 'class="on"' : '' ?>>New article</a>
