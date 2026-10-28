@@ -17,7 +17,15 @@ page_hero('Practice areas', 'Comprehensive legal services under one roof.', 'Fro
 <section class="section alt services-grid-section">
   <div class="container">
     <div class="services-grid">
-      <?php foreach (service_areas() as $area): ?>
+      <?php
+      // Grouped by content length so each row of cards is a similar height.
+      $order = ['Energy and Mining Law', 'Business Rescue and Insolvency', 'Tax Advice and Litigation',
+                'General Civil Litigation', 'Intellectual Property', 'Arbitration',
+                'Conveyancing and Notarial Practice', 'Commercial and Corporate Law', 'Labour Law',
+                'Criminal Law', 'Estate Planning, Wills and Successions', 'Insurance Law'];
+      $areas = service_areas();
+      usort($areas, fn($a, $b) => array_search($a['title'], $order) <=> array_search($b['title'], $order));
+      foreach ($areas as $area): ?>
         <article class="card service-card">
           <div class="service-head">
             <span class="icon-dot" aria-hidden="true">◆</span>
