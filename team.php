@@ -33,12 +33,12 @@ $people = team();
     </div>
     <div class="grid grid-2">
       <?php foreach (array_slice($people, 2) as $p): ?>
-        <article class="card assoc">
+        <article class="card assoc<?= strlen($p['bio']) > 500 ? ' assoc-wide' : '' ?>">
           <?php team_photo($p); ?>
           <div>
             <h3><?= e($p['name']) ?></h3>
             <p class="role"><?= e($p['degree']) ?> — <?= e($p['role']) ?></p>
-            <p><?= e($p['bio']) ?></p>
+            <?php foreach (explode("\n", $p['bio']) as $para): ?><p><?= e($para) ?></p><?php endforeach; ?>
           </div>
         </article>
       <?php endforeach; ?>

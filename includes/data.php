@@ -64,8 +64,8 @@ function team(): array
             'bio' => 'Former Judge’s Assistant and Magistrate (2015–2022), bringing bench experience to private practice since joining as a pioneer of the firm.',
         ],
         [
-            'name' => 'Alexis Murombo', 'role' => 'Senior Associate', 'degree' => 'LLB (Hons) SA',
-            'bio' => 'Specialises in civil and criminal litigation, with interests in family, immigration, medical, mining, commercial, media and intellectual property law.',
+            'name' => 'Alexis Murombo', 'role' => 'Senior Associate', 'degree' => 'LLBS. UZ',
+            'bio' => "Alexio is having a second bite of his professional careers. He has spent more than 30 years, in the accounting and financial fields, having had long stints, with accounting firms such Ernst & Young, Alexander Katz etc. He is therefore, a seasoned professional in corporate accounting, administration and finance and the legal qualification broadens and a cherry to his professional depth.\nHaving peaked, to the positions of financial and commercial director, in the corporate sector, he has deep practical insights in all matters pertaining to corporate work within the ambit of commercial and corporate law as well as taxation. He was registered as a legal practitioner in March 2017 after enrolling with the University of Zimbabwe Faculty of Law to study law at the age of fifty-one.\nHis work with legal firms includes, Gula Ndebele & Partners, Matsikidze Attorneys at Law, Masinire Law Chambers and now with current law firm MC Attorneys.\nWhen all is said and done his matured and diligent approach to the legal profession cannot be over emphasised but rather appreciated.",
         ],
         [
             'name' => 'Tatenda Chimbadzwa', 'role' => 'Senior Associate', 'degree' => 'LLB (Hons) MSU',
