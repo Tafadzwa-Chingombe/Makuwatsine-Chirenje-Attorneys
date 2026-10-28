@@ -92,7 +92,12 @@ function service_areas(): array
             'All legal issues pertaining to fixed properties, such as usufructs, servitudes and related real rights',
             'Advice on share block schemes and sectional title schemes',
         ]],
-        ['title' => 'Criminal Law', 'intro' => 'We handle criminal law issues which may be faced by our corporate clients.'],
+        ['title' => 'Criminal Law', 'intro' => 'Our practitioners aim to protect the rights of the individual. We have a rights-based approach to criminal justice. Our team will assist clients with legal advice from the time of arrest to the finalization of the matter. We handle the following:', 'items' => [
+            'Attendance at police stations and holding cells to ensure that client’s rights are not violated',
+            'Bail applications',
+            'Applications for the production of arrested persons by the state',
+            'Criminal trial litigation in all courts including appeals and private prosecutions',
+        ]],
         ['title' => 'Energy and Mining Law', 'items' => [
             'Advice in respect of the legislative and regulatory requirements relating to energy and mining projects including environmental and safety issues',
             'Advice in respect of Zimbabwe Investment Authority applications, Special Economic Zones and immigration requirements',

@@ -18,9 +18,9 @@ require __DIR__ . '/includes/header.php';
     <div class="services-grid">
       <?php
       // Grouped by content length so each row of cards is a similar height.
-      $order = ['Energy and Mining Law', 'Conveyancing and Notarial Practice', 'Business Rescue and Insolvency',
+      $order = ['Conveyancing and Notarial Practice', 'Business Rescue and Insolvency', 'Criminal Law',
                 'General Civil Litigation', 'Intellectual Property', 'Labour Law',
-                'Insurance Law', 'Estate Planning and Administration of Estates', 'Criminal Law',
+                'Insurance Law', 'Estate Planning and Administration of Estates', 'Energy and Mining Law',
                 'Commercial and Corporate Law'];
       $areas = service_areas();
       usort($areas, fn($a, $b) => array_search($a['title'], $order) <=> array_search($b['title'], $order));
