@@ -6,7 +6,7 @@ $active = 'about';
 $page_title = 'About Us';
 $meta_desc = 'Makuwatsine Chirenje Attorneys was founded in April 2025 in Harare by Tendai Makuwatsine and Liberty Chirenje. Learn about our story, mission, vision and values.';
 require __DIR__ . '/includes/header.php';
-page_hero('About us', 'A new firm with decades of experience.', 'Makuwatsine Chirenje Attorneys (MC Attorneys) is a registered law firm in terms of the Legal Practitioners Act, formed in April 2025.');
+page_hero('About us', 'A new firm with decades of experience.', 'Makuwatsine Chirenje Attorneys (MC Attorneys) is a registered law firm in terms of the Legal Practitioners Act, formed in April 2025.', 'assets/img/about-hero.jpg');
 ?>
 <section class="section">
   <div class="container split">
