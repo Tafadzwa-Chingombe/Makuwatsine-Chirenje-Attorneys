@@ -73,3 +73,12 @@ function team_photo(array $p, string $class = 'tall'): void
     }
     img_placeholder('Portrait of ' . $p['name'], $class);
 }
+
+/** Phone number(s) shown under a team member's profile. */
+function team_phones(array $p): void
+{
+    if (empty($p['phones'])) { return; }
+    echo '<p class="person-phone"><span class="person-phone-label">Tel</span>';
+    $links = array_map(fn($ph) => '<a href="' . e(tel_href($ph)) . '">' . e($ph) . '</a>', $p['phones']);
+    echo implode('<span class="sep"> / </span>', $links) . '</p>';
+}

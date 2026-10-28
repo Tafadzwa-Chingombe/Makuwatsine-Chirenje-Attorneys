@@ -21,6 +21,15 @@ function config(?string $key = null, $default = null)
     return $key === null ? $cfg : ($cfg[$key] ?? $default);
 }
 
+/** tel: link for a phone number written as +263 …, 263 … or local 0… */
+function tel_href(string $phone): string
+{
+    $d = preg_replace('/\D/', '', $phone);
+    if (strpos($d, '2630') === 0) { $d = '263' . substr($d, 4); }
+    elseif (strpos($d, '263') !== 0 && strpos($d, '0') === 0) { $d = '263' . substr($d, 1); }
+    return 'tel:+' . $d;
+}
+
 function e($v): string
 {
     return htmlspecialchars((string) $v, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');

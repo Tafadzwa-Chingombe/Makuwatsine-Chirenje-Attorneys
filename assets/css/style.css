@@ -336,3 +336,10 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--gold-500); 
 .cta-banner.has-bg > .container { position: relative; }
 @media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr); } .services-intro { padding: 72px 0; } }
 @media (max-width: 640px) { .services-grid { grid-template-columns: 1fr; } .service-card-wide > .service-list { column-count: 1; } .services-intro { padding: 56px 0; } .services-grid-section { padding: 48px 0 72px; } .service-head h3 { font-size: 21px; } }
+
+/* Team member phone line */
+.person-phone { margin: 14px 0 0; font-weight: 600; color: var(--navy-800); font-size: 15px; }
+.person-phone a { color: var(--navy-800); text-decoration: none; }
+.person-phone a:hover { color: var(--gold-500); text-decoration: underline; }
+.person-phone-label { display: inline-block; margin-right: 10px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-500); }
+.person-phone .sep { color: var(--muted); font-weight: 400; }

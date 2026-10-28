@@ -30,8 +30,7 @@
         <h3>Contact</h3>
         <ul class="footer-contact">
           <li><?= e(implode(', ', FIRM['address'])) ?></li>
-          <li><a href="tel:+263<?= e(substr(preg_replace('/\D/', '', FIRM['phones'][0]), 1)) ?>"><?= e(FIRM['phones'][0]) ?></a> / <?= e(FIRM['phones'][1]) ?></li>
-          <li><?= e(FIRM['phones'][2]) ?> / <?= e(FIRM['phones'][3]) ?></li>
+          <li><a href="<?= e(tel_href(FIRM['phones'][0])) ?>"><?= e(FIRM['phones'][0]) ?></a></li>
           <li><a href="mailto:<?= e(FIRM['email']) ?>"><?= e(FIRM['email']) ?></a></li>
         </ul>
       </div>

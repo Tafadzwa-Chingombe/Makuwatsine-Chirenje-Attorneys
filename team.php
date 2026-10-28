@@ -19,6 +19,7 @@ $people = team();
           <h2><?= e($p['name']) ?></h2>
           <p class="degree"><?= e($p['degree']) ?></p>
           <?php foreach (explode("\n", $p['bio']) as $para): ?><p><?= e($para) ?></p><?php endforeach; ?>
+          <?php team_phones($p); ?>
         </div>
       </article>
     <?php endforeach; ?>
@@ -43,6 +44,7 @@ $people = team();
             <h3><?= e($p['name']) ?></h3>
             <p class="role"><?= e($p['degree']) ?> — <?= e($p['role']) ?></p>
             <?php foreach (explode("\n", $p['bio']) as $para): ?><p><?= e($para) ?></p><?php endforeach; ?>
+          <?php team_phones($p); ?>
           </div>
         </article>
       <?php endforeach; ?>
