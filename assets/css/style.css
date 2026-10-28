@@ -74,7 +74,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 .page-hero .lead { color: var(--border); margin: 0; line-height: 30px; }
 
 /* Home hero */
-.hero { background: var(--navy-800); padding: 96px 0; }
+.hero { position: relative; background: var(--navy-800) center 62% / cover no-repeat; padding: 96px 0; }
+.hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7,21,42,.62), rgba(7,21,42,.12)); }
+.hero > .container { position: relative; }
 .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
 .hero h1 { color: var(--white); font-size: clamp(38px, 5.2vw, 60px); max-width: 560px; }
 .hero p.lead { color: var(--border); }
