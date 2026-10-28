@@ -4,7 +4,7 @@
     <div class="footer-cols">
       <div class="footer-about">
         <a class="logo" href="<?= e(url('index.php')) ?>">
-          <img src="<?= e(url('assets/img/logo.png')) ?>" alt="<?= e(FIRM['name']) ?>" width="205" height="44">
+          <img src="<?= e(url('assets/img/logo-large.png')) ?>" alt="<?= e(FIRM['name']) ?>" width="205" height="44">
         </a>
         <p>Legal practitioners, notaries, conveyancers, executors and commercial lawyers serving clients across Zimbabwe.</p>
       </div>

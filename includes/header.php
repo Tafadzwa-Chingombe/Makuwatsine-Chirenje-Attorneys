@@ -39,7 +39,7 @@ $full_title = $page_title === FIRM['name'] ? $page_title : $page_title . ' | ' .
 <header class="site-header" id="top">
   <div class="container nav-row">
     <a class="logo" href="<?= e(url('index.php')) ?>" aria-label="<?= e(FIRM['name']) ?> — home">
-      <img src="<?= e(url('assets/img/logo.png')) ?>" alt="" width="205" height="44">
+      <img src="<?= e(url('assets/img/logo-large.png')) ?>" alt="" width="205" height="44">
     </a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
     <nav id="site-nav" class="site-nav" aria-label="Main">
