@@ -48,7 +48,7 @@ $samples = [
 ];
 $posts = array_map(fn($s) => [
     'slug' => $s[0], 'category' => $s[1], 'title' => $s[2], 'author' => $s[3], 'published_at' => $s[4] . ' 09:00:00', 'created_at' => $s[4] . ' 09:00:00',
-    'excerpt' => $s[5], 'content' => $s[6], 'cover_image' => ['what-to-know-before-transferring-property' => 'conveyancing.jpg', 'administering-a-deceased-estate' => 'estates.jpg'][$s[0]] ?? null, 'status' => 'published',
+    'excerpt' => $s[5], 'content' => $s[6], 'cover_image' => ['what-to-know-before-transferring-property' => 'conveyancing.jpg', 'administering-a-deceased-estate' => 'estates.jpg', 'employer-duties-when-ending-employment' => 'labour.jpg'][$s[0]] ?? null, 'status' => 'published',
 ], $samples);
 
 /* ---------- Rendering helpers ---------- */
