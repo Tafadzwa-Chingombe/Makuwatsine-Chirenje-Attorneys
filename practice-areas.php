@@ -18,14 +18,14 @@ require __DIR__ . '/includes/header.php';
     <div class="services-grid">
       <?php
       // Grouped by content length so each row of cards is a similar height.
-      $order = ['Energy and Mining Law', 'Business Rescue and Insolvency', 'Tax Advice and Litigation',
-                'General Civil Litigation', 'Intellectual Property', 'Conveyancing and Notarial Practice',
-                'Commercial and Corporate Law', 'Labour Law', 'Insurance Law',
-                'Criminal Law', 'Estate Planning, Wills and Successions'];
+      $order = ['Energy and Mining Law', 'Conveyancing and Notarial Practice', 'Business Rescue and Insolvency',
+                'General Civil Litigation', 'Intellectual Property', 'Labour Law',
+                'Insurance Law', 'Estate Planning and Administration of Estates', 'Criminal Law',
+                'Commercial and Corporate Law'];
       $areas = service_areas();
       usort($areas, fn($a, $b) => array_search($a['title'], $order) <=> array_search($b['title'], $order));
       foreach ($areas as $area): ?>
-        <article class="card service-card">
+        <article class="card service-card<?= count($area['items'] ?? []) >= 10 ? ' service-card-wide' : '' ?>">
           <div class="service-head">
             <span class="icon-dot" aria-hidden="true">◆</span>
             <h3><?= e($area['title']) ?></h3>

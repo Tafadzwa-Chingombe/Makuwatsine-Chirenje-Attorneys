@@ -101,7 +101,7 @@ function service_areas(): array
             'Investment issues particularly pertinent to the mining sector',
             'Advice relating to and registration of security',
         ]],
-        ['title' => 'Estate Planning, Wills and Successions', 'items' => [
+        ['title' => 'Estate Planning and Administration of Estates', 'items' => [
             'Estate planning with consideration to trusts, company structures, tax and estate duty',
             'Drafting of trusts',
             'Drafting of wills',
@@ -158,15 +158,6 @@ function service_areas(): array
             'Advice relating to the liabilities resulting from judicial management, liquidation and insolvency',
             'Advice relating to employment issues arising from judicial management, liquidation and insolvency',
             'Advice on Schemes of Arrangement.',
-        ]],
-        ['title' => 'Tax Advice and Litigation', 'items' => [
-            'Often working in conjunction with established accounting firms, we offer advice on a wide range of issues relating to income tax, various categories of withholding tax, and VAT',
-            ['We provide advice in relation to tax litigation generally, and in particular with respect to:', [
-                'Framing objections to tax assessments',
-                'Filing appeals to the tax appeal courts in terms of the relevant provisions of the Income Tax Act and Value Added Tax Act',
-                'Prosecuting tax appeals up to the stage of hearing',
-                'Arranging representation for clients at the hearing of tax appeals',
-            ]],
         ]],
     ];
 }
