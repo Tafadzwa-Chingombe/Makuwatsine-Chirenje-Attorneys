@@ -71,7 +71,6 @@ page_hero('Contact us', 'Let’s talk about your legal matter.', 'Call, email or
         <div class="detail"><span class="icon-dot" aria-hidden="true">◆</span><div><dt>Address</dt><dd><?= e(implode(', ', FIRM['address'])) ?></dd></div></div>
         <div class="detail"><span class="icon-dot" aria-hidden="true">◆</span><div><dt>Phone</dt><dd><?php foreach (FIRM['phones'] as $ph): ?><a href="<?= e(tel_href($ph)) ?>"><?= e($ph) ?></a><br><?php endforeach; ?></dd></div></div>
         <div class="detail"><span class="icon-dot" aria-hidden="true">◆</span><div><dt>Email</dt><dd><a href="mailto:<?= e(FIRM['email']) ?>"><?= e(FIRM['email']) ?></a></dd></div></div>
-        <div class="detail"><span class="icon-dot" aria-hidden="true">◆</span><div><dt>Bankers</dt><dd><?= e(FIRM['banker']) ?></dd></div></div>
       </dl>
       <?php $mapQuery = rawurlencode('6 Londonderry Avenue, Eastlea, Harare, Zimbabwe'); ?>
       <div class="map-embed">

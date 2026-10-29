@@ -9,7 +9,6 @@ const FIRM = [
     'address' => ['6 Londonderry Avenue', 'Eastlea', 'Harare'],
     'phones'  => ['+263 24 2720094'],
     'email'   => 'admin@mcattorneys.co.zw',
-    'banker'  => 'CBZ Bank Limited, Selous Avenue, Harare',
 ];
 
 function practice_areas(): array
