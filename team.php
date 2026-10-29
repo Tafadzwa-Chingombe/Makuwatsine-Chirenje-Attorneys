@@ -6,7 +6,7 @@ $active = 'team';
 $page_title = 'Our Team';
 $meta_desc = 'Meet the partners and senior associates of Makuwatsine Chirenje Attorneys, Harare.';
 require __DIR__ . '/includes/header.php';
-page_hero('Our team', 'Lawyers from diverse backgrounds, one shared standard.', 'A managing partner, a founding partner and two senior associates, supported by professional assistants and dedicated staff.', 'assets/img/team-hero.jpg');
+page_hero('Our team', 'Lawyers from diverse backgrounds, one shared standard.', 'Two partners, and 5 senior associates supported by dedicated staff.', 'assets/img/team-hero.jpg');
 $people = team();
 ?>
 <section class="section partners">
