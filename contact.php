@@ -50,7 +50,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $headers = 'From: ' . $clean(FIRM['short']) . ' Website <' . $clean((string) config('mail_from')) . ">\r\n"
                 . 'Reply-To: ' . $clean($old['email']) . "\r\n"
                 . "Content-Type: text/plain; charset=UTF-8\r\n";
-            @mail((string) config('mail_to'), 'Website enquiry from ' . $clean($old['name']), $body, $headers);
+            $mailFrom = $clean((string) config('mail_from'));
+            // "-f" sets the envelope sender to an address on your own domain, which cPanel needs for reliable delivery.
+            $ok = @mail((string) config('mail_to'), 'Website enquiry from ' . $clean($old['name']), $body, $headers, filter_var($mailFrom, FILTER_VALIDATE_EMAIL) ? '-f' . $mailFrom : '');
+            if (!$ok) { error_log('Contact form email to ' . config('mail_to') . ' could not be handed to the mail server.'); }
 
             $_SESSION['enq'][] = time();
             $sent = true;
