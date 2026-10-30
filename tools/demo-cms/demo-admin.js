@@ -140,7 +140,11 @@
       '<div class="btn-row"><button type="button" class="btn-ghost" data-act="draft">Save draft</button>' +
       '<button type="button" class="btn-primary" data-act="publish">' + (live ? 'Update' : 'Publish') + '</button></div></div>' +
       '<div class="panel"><h2>Details</h2><label for="category">Category</label><select id="category">' +
-      st.categories.map(function (c) { return '<option' + (c === post.category ? ' selected' : '') + '>' + esc(c) + '</option>'; }).join('') + '</select>' +
+      (st.categories.indexOf(post.category) < 0 && post.category ? '<option selected>' + esc(post.category) + '</option>' : '') +
+      st.categories.map(function (c) { return '<option' + (c === post.category ? ' selected' : '') + '>' + esc(c) + '</option>'; }).join('') +
+      '<option value="__new__">+ Add a new category…</option></select>' +
+      '<input type="text" id="new-category" maxlength="40" placeholder="Type the new category name" hidden style="margin-top:8px">' +
+      '<p class="hint" id="new-category-hint" hidden>The new category is added to the list and to the Blog filter when you save.</p>' +
       '<label for="author">Author</label><input type="text" id="author" value="' + esc(post.author) + '" maxlength="120"></div>' +
       '<div class="panel"><h2>Cover image</h2><div id="cover-box"></div>' +
       '<input type="file" id="cover" accept="image/jpeg,image/png,image/webp,image/gif">' +
@@ -151,6 +155,12 @@
     var title = document.getElementById('title'), slug = document.getElementById('slug'), prev = document.getElementById('slug-preview');
     title.addEventListener('input', function () { if (slug.dataset.manual !== '1') { slug.value = S.slugify(title.value); prev.textContent = slug.value || '…'; } });
     slug.addEventListener('input', function () { slug.dataset.manual = '1'; prev.textContent = S.slugify(slug.value) || '…'; });
+    var catSel = document.getElementById('category'), catNew = document.getElementById('new-category'), catHint = document.getElementById('new-category-hint');
+    catSel.addEventListener('change', function () {
+      var on = catSel.value === '__new__';
+      catNew.hidden = !on; catHint.hidden = !on;
+      if (on) catNew.focus();
+    });
     document.getElementById('cover').addEventListener('change', function (e) {
       var f = e.target.files[0]; if (!f) return;
       resizeImage(f, 1400, function (d) { coverData = d; coverRemoved = false; drawCover(); });
@@ -194,6 +204,16 @@
     var title = g('title').trim(), slug = S.slugify(g('slug') || title);
     if (!title) errs.push('Please enter a title.');
     if (action === 'publish' && !S.textOf(html) && html.indexOf('<img') < 0) errs.push('An article needs some content before it can be published.');
+    var category = g('category'), newCategory = false;
+    if (category === '__new__') {
+      var typed = g('new-category').replace(/\s+/g, ' ').trim();
+      if (!typed) { errs.push('Please type a name for the new category.'); }
+      else {
+        var match = st.categories.filter(function (c) { return c.toLowerCase() === typed.toLowerCase(); })[0];
+        category = match || typed;
+        newCategory = !match;
+      }
+    }
     if (!slug) slug = 'article';
     var base0 = slug, n = 1;
     while (st.posts.some(function (p) { return p.slug === slug && p.id !== post.id; })) slug = base0 + '-' + (++n);
@@ -201,14 +221,15 @@
 
     var dt = g('published_at'), ts = dt ? S.stamp(new Date(dt)) : null, nowS = S.stamp(new Date());
     var rec = {
-      id: post.id || nextId(st.posts), slug: slug, title: title, category: g('category'), author: g('author').trim(),
+      id: post.id || nextId(st.posts), slug: slug, title: title, category: category, author: g('author').trim(),
       excerpt: g('excerpt').trim() || excerptOf(html), content: html,
       cover: coverRemoved ? null : coverData, status: action === 'publish' ? 'published' : 'draft',
       published_at: action === 'publish' ? (ts || post.published_at || nowS) : (ts || post.published_at), updated_at: nowS
     };
-    var before = S.clone(st.posts);
+    var before = S.clone(st.posts), beforeCats = st.categories.slice();
+    if (newCategory) st.categories.push(category);
     if (post.id) st.posts = st.posts.map(function (p) { return p.id === rec.id ? rec : p; }); else st.posts.push(rec);
-    if (!persist()) { st.posts = before; return; }
+    if (!persist()) { st.posts = before; st.categories = beforeCats; return; }
     flash(action === 'publish' ? 'Article published — it is now live on the blog.' : 'Draft saved.');
     go('/edit/' + rec.id);
   }
