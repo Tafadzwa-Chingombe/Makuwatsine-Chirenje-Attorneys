@@ -64,3 +64,6 @@ uploads/    article images (git-ignored)
 - Everything is saved in the visitor's own browser (`localStorage`) — nothing is sent to a server and other visitors never see it. The real CMS (PHP + MySQL, above) is unchanged.
 
 Source: `tools/demo-cms/` (`demo-store.js`, `demo-public.js`, `demo-admin.js`, `demo-admin.css`).
+
+## Uploading to cPanel
+Run `bash tools/make-cpanel-package.sh` to rebuild `deploy/mc-attorneys-cpanel.zip` (website + CMS + all pictures), then follow `deploy/CPANEL-UPLOAD-GUIDE.md`.

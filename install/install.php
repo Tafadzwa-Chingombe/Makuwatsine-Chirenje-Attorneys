@@ -25,11 +25,13 @@ $v = [
     'mail_to' => 'admin@mcattorneys.co.zw', 'mail_from' => '',
     'admin_name' => '', 'admin_email' => '',
 ];
+$withSamples = true;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_check();
     foreach ($v as $k => $_) { $v[$k] = trim((string) ($_POST[$k] ?? $v[$k])); }
     $pass = (string) ($_POST['admin_pass'] ?? '');
+    $withSamples = !empty($_POST['samples']);
 
     if ($v['db_name'] === '' || $v['db_user'] === '') { $errors[] = 'Enter the database name and user created in cPanel → MySQL® Databases.'; }
     if ($v['admin_name'] === '') { $errors[] = 'Enter the administrator name.'; }
@@ -52,6 +54,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 $pdo->prepare('INSERT INTO users (name, email, password_hash) VALUES (?,?,?)')
                     ->execute([$v['admin_name'], strtolower($v['admin_email']), password_hash($pass, PASSWORD_DEFAULT)]);
+
+                if ($withSamples) {
+                    $covers = [
+                        'what-to-know-before-transferring-property' => 'conveyancing.jpg', 'administering-a-deceased-estate' => 'estates.jpg',
+                        'employer-duties-when-ending-employment' => 'labour.jpg', 'choosing-a-business-structure' => 'commercial.jpg',
+                        'your-rights-when-arrested' => 'litigation.jpg', 'understanding-mining-title' => 'mining.jpg',
+                        'mc-attorneys-opens-in-eastlea' => 'news.jpg',
+                    ];
+                    @mkdir(ROOT_DIR . '/uploads', 0755, true);
+                    $ins = $pdo->prepare('INSERT IGNORE INTO posts (title, slug, excerpt, content, cover_image, category, author, status, published_at) VALUES (?,?,?,?,?,?,?,?,?)');
+                    foreach (require __DIR__ . '/sample-posts.php' as [$slug, $cat, $title, $author, $date, $excerpt, $html]) {
+                        $cover = $covers[$slug] ?? null;
+                        $src = __DIR__ . '/sample-covers/' . $cover;
+                        if ($cover && is_file($src)) { @copy($src, ROOT_DIR . '/uploads/' . $cover); @chmod(ROOT_DIR . '/uploads/' . $cover, 0644); } else { $cover = null; }
+                        $ins->execute([$title, $slug, $excerpt, $html, $cover, $cat, $author, 'published', $date . ' 09:00:00']);
+                    }
+                }
 
                 $cfg = [
                     'db_host' => $v['db_host'], 'db_name' => $v['db_name'], 'db_user' => $v['db_user'], 'db_pass' => $v['db_pass'],
@@ -111,6 +130,8 @@ button{margin-top:24px;background:#C99A2E;border:0;border-radius:6px;padding:12p
     <label>Name</label><input name="admin_name" value="<?= e($v['admin_name']) ?>" required>
     <label>Email (used to log in)</label><input type="email" name="admin_email" value="<?= e($v['admin_email']) ?>" required>
     <label>Password <small>(min. 10 characters)</small></label><input type="password" name="admin_pass" minlength="10" required autocomplete="new-password">
+    <h2>Sample content</h2>
+    <label style="font-weight:400"><input type="checkbox" name="samples" value="1" style="width:auto" <?= $withSamples ? 'checked' : '' ?>> Add the 7 sample blog articles (with pictures) so the Blog page is not empty. You can edit or delete them later.</label>
     <button type="submit">Install</button>
   </form>
 <?php endif; ?>
