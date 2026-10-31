@@ -21,6 +21,23 @@ function config(?string $key = null, $default = null)
     return $key === null ? $cfg : ($cfg[$key] ?? $default);
 }
 
+/** Blog categories: the preset list plus any custom category already used by an article (draft or published). */
+function all_categories(?PDO $pdo = null): array
+{
+    $cats = (array) config('categories');
+    $pdo = $pdo ?: db();
+    if ($pdo) {
+        try {
+            foreach ($pdo->query("SELECT DISTINCT category FROM posts WHERE category <> '' ORDER BY category")->fetchAll(PDO::FETCH_COLUMN) as $c) {
+                $exists = false;
+                foreach ($cats as $k) { if (mb_strtolower($k) === mb_strtolower($c)) { $exists = true; break; } }
+                if (!$exists) { $cats[] = $c; }
+            }
+        } catch (Throwable $ex) { /* fall back to presets */ }
+    }
+    return $cats;
+}
+
 /** tel: link for a phone number written as +263 …, 263 … or local 0… */
 function tel_href(string $phone): string
 {

@@ -1,3 +1,11 @@
+// New-category box: shown when "+ Add a new category…" is chosen (works even if the editor library is blocked).
+(function () {
+  var sel = document.getElementById('category'), box = document.getElementById('new-category'), hint = document.getElementById('new-category-hint');
+  if (!sel || !box) return;
+  function sync() { var on = sel.value === '__new__'; box.hidden = !on; if (hint) hint.hidden = !on; if (on && document.activeElement === sel) box.focus(); }
+  sel.addEventListener('change', sync); sync();
+})();
+
 // Article editor: Quill rich-text editor, slug helper and image upload.
 (function () {
   var form = document.getElementById('post-form');

@@ -117,3 +117,7 @@ Open each of these and check that the pictures show:
 
 ---
 *Files included in the zip: the website pages, `admin/` (the CMS), `assets/` (styles, scripts and every picture used on the demo site), `includes/`, `install/` (delete after use), `sql/` and `uploads/`. The seven sample blog pictures sit in `install/sample-covers` and are copied to `uploads` by the installer.*
+
+## Update: custom categories in the real CMS
+In **New article** (and when editing), the Category list now ends with **"+ Add a new category…"**. Pick it, type the name, and Publish or Save draft. The new category is remembered, shows up in the list for future articles, and appears as a filter button on the Blog page. Typing a name that already exists (in any capitalisation) re-uses the existing one.
+To add this to a site that is already installed, upload `update-custom-categories.zip` into `public_html`, choose **Extract**, and overwrite the 4 files. This never touches your database, settings or pictures.

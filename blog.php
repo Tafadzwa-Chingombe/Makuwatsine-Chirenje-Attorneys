@@ -7,7 +7,7 @@ $active = 'blog';
 $page_title = 'Blog';
 $meta_desc = 'Legal insights and news from Makuwatsine Chirenje Attorneys: property, estates, labour, commercial and mining law in Zimbabwe.';
 
-$cats = config('categories');
+$cats = all_categories();
 $cat = isset($_GET['category']) && in_array($_GET['category'], $cats, true) ? $_GET['category'] : '';
 $perPage = max(1, (int) config('posts_per_page', 6));
 $pageNo = max(1, (int) ($_GET['page'] ?? 1));

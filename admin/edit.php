@@ -20,13 +20,26 @@ $errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     csrf_check();
-    $cats = config('categories');
+    $cats = all_categories($pdo);
     $action = ($_POST['action'] ?? 'draft') === 'publish' ? 'publish' : 'draft';
 
     $post['title'] = trim((string) ($_POST['title'] ?? ''));
     $post['slug'] = slugify((string) (($_POST['slug'] ?? '') !== '' ? $_POST['slug'] : $post['title']));
     $post['excerpt'] = mb_substr(trim((string) ($_POST['excerpt'] ?? '')), 0, 400);
-    $post['category'] = in_array($_POST['category'] ?? '', $cats, true) ? $_POST['category'] : $cats[0];
+    $chosen = (string) ($_POST['category'] ?? '');
+    if ($chosen === '__new__') {
+        $typed = trim((string) preg_replace('/\s+/u', ' ', (string) ($_POST['new_category'] ?? '')));
+        if ($typed === '') {
+            $errors[] = 'Please type a name for the new category.';
+            $chosen = $cats[0];
+        } else {
+            $typed = mb_substr($typed, 0, 40);
+            $chosen = $typed;
+            foreach ($cats as $k) { if (mb_strtolower($k) === mb_strtolower($typed)) { $chosen = $k; break; } }
+        }
+    }
+    $post['category'] = in_array($chosen, $cats, true) || $chosen !== '' ? $chosen : $cats[0];
+    $keepNewCategory = ($_POST['category'] ?? '') === '__new__';
     $post['author'] = mb_substr(trim((string) ($_POST['author'] ?? '')), 0, 120);
     $post['content'] = sanitize_html((string) ($_POST['content'] ?? ''));
 
@@ -129,7 +142,10 @@ admin_header($post['id'] ? 'Edit article' : 'New article', $post['id'] ? 'posts'
     <div class="panel">
       <h2>Details</h2>
       <label for="category">Category</label>
-      <select id="category" name="category"><?php foreach (config('categories') as $c): ?><option <?= $post['category'] === $c ? 'selected' : '' ?>><?= e($c) ?></option><?php endforeach; ?></select>
+      <?php $catList = all_categories($pdo); ?>
+      <select id="category" name="category"><?php foreach ($catList as $c): ?><option <?= $post['category'] === $c ? 'selected' : '' ?>><?= e($c) ?></option><?php endforeach; ?><option value="__new__" <?= !empty($keepNewCategory) ? 'selected' : '' ?>>+ Add a new category…</option></select>
+      <input type="text" id="new-category" name="new_category" maxlength="40" placeholder="Type the new category name" value="<?= e((string) ($_POST['new_category'] ?? '')) ?>" style="margin-top:8px" <?= !empty($keepNewCategory) ? '' : 'hidden' ?>>
+      <p class="hint" id="new-category-hint" <?= !empty($keepNewCategory) ? '' : 'hidden' ?>>The new category is added to the list and to the Blog filter when you save.</p>
       <label for="author">Author</label>
       <input type="text" id="author" name="author" value="<?= e($post['author']) ?>" maxlength="120">
     </div>
