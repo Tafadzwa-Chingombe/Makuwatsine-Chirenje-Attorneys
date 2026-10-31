@@ -5,6 +5,7 @@
  */
 require_once __DIR__ . '/../includes/functions.php';
 header('X-Robots-Tag: noindex, nofollow');
+header('Cache-Control: no-store');
 
 $lock = __DIR__ . '/.lock';
 $configFile = ROOT_DIR . '/includes/config.php';
@@ -28,7 +29,8 @@ $v = [
 $withSamples = true;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    csrf_check();
+    // No session token check here on purpose: this one-time page is already open to anyone until it is used and
+    // locked, and a session that expires while you set up the database in cPanel must not block the install.
     foreach ($v as $k => $_) { $v[$k] = trim((string) ($_POST[$k] ?? $v[$k])); }
     $pass = (string) ($_POST['admin_pass'] ?? '');
     $withSamples = !empty($_POST['samples']);
@@ -115,7 +117,7 @@ button{margin-top:24px;background:#C99A2E;border:0;border-radius:6px;padding:12p
     </ol></div>
 <?php else: ?>
   <?php if ($errors): ?><div class="err"><?php foreach ($errors as $er): ?><?= e($er) ?><br><?php endforeach; ?></div><?php endif; ?>
-  <form method="post"><?= csrf_field() ?>
+  <form method="post">
     <h2>Database</h2>
     <label>Host</label><input name="db_host" value="<?= e($v['db_host']) ?>" required>
     <label>Database name</label><input name="db_name" value="<?= e($v['db_name']) ?>" placeholder="cpaneluser_mcattorneys" required>
