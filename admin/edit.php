@@ -27,19 +27,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $post['slug'] = slugify((string) (($_POST['slug'] ?? '') !== '' ? $_POST['slug'] : $post['title']));
     $post['excerpt'] = mb_substr(trim((string) ($_POST['excerpt'] ?? '')), 0, 400);
     $chosen = (string) ($_POST['category'] ?? '');
-    if ($chosen === '__new__') {
-        $typed = trim((string) preg_replace('/\s+/u', ' ', (string) ($_POST['new_category'] ?? '')));
-        if ($typed === '') {
-            $errors[] = 'Please type a name for the new category.';
-            $chosen = $cats[0];
-        } else {
-            $typed = mb_substr($typed, 0, 40);
-            $chosen = $typed;
-            foreach ($cats as $k) { if (mb_strtolower($k) === mb_strtolower($typed)) { $chosen = $k; break; } }
-        }
+    $typed = trim((string) preg_replace('/\s+/u', ' ', (string) ($_POST['new_category'] ?? '')));
+    if ($typed !== '') {
+        // A typed name wins over the dropdown. Re-use an existing category if it matches (any capitalisation).
+        $typed = mb_substr($typed, 0, 40);
+        $chosen = $typed;
+        foreach ($cats as $k) { if (mb_strtolower($k) === mb_strtolower($typed)) { $chosen = $k; break; } }
+    } elseif (!in_array($chosen, $cats, true)) {
+        $chosen = $cats[0];
     }
-    $post['category'] = in_array($chosen, $cats, true) || $chosen !== '' ? $chosen : $cats[0];
-    $keepNewCategory = ($_POST['category'] ?? '') === '__new__';
+    $post['category'] = $chosen;
     $post['author'] = mb_substr(trim((string) ($_POST['author'] ?? '')), 0, 120);
     $post['content'] = sanitize_html((string) ($_POST['content'] ?? ''));
 
@@ -143,9 +140,9 @@ admin_header($post['id'] ? 'Edit article' : 'New article', $post['id'] ? 'posts'
       <h2>Details</h2>
       <label for="category">Category</label>
       <?php $catList = all_categories($pdo); ?>
-      <select id="category" name="category"><?php foreach ($catList as $c): ?><option <?= $post['category'] === $c ? 'selected' : '' ?>><?= e($c) ?></option><?php endforeach; ?><option value="__new__" <?= !empty($keepNewCategory) ? 'selected' : '' ?>>+ Add a new category…</option></select>
-      <input type="text" id="new-category" name="new_category" maxlength="40" placeholder="Type the new category name" value="<?= e((string) ($_POST['new_category'] ?? '')) ?>" style="margin-top:8px" <?= !empty($keepNewCategory) ? '' : 'hidden' ?>>
-      <p class="hint" id="new-category-hint" <?= !empty($keepNewCategory) ? '' : 'hidden' ?>>The new category is added to the list and to the Blog filter when you save.</p>
+      <select id="category" name="category"><?php foreach ($catList as $c): ?><option <?= $post['category'] === $c ? 'selected' : '' ?>><?= e($c) ?></option><?php endforeach; ?></select>
+      <label for="new-category" style="margin-top:12px">Or type a new category <span class="hint">Leave empty to use the list above.</span></label>
+      <input type="text" id="new-category" name="new_category" maxlength="40" placeholder="e.g. Family Law" value="<?= e((string) ($_POST['new_category'] ?? '')) ?>">
       <label for="author">Author</label>
       <input type="text" id="author" name="author" value="<?= e($post['author']) ?>" maxlength="120">
     </div>
@@ -164,5 +161,5 @@ admin_header($post['id'] ? 'Edit article' : 'New article', $post['id'] ? 'posts'
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.snow.css">
 <script src="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.min.js"></script>
 <script>window.MC = { csrf: <?= json_encode(csrf_token()) ?>, uploadUrl: <?= json_encode(url('admin/upload-image.php')) ?> };</script>
-<script src="<?= e(url('assets/js/admin.js')) ?>"></script>
+<script src="<?= e(url('assets/js/admin.js')) ?>?v=<?= (int) @filemtime(__DIR__ . '/../assets/js/admin.js') ?>"></script>
 <?php admin_footer();

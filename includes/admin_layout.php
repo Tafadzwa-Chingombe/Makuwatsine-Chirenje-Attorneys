@@ -16,7 +16,7 @@ function admin_header(string $title, string $nav = ''): void
 <meta name="robots" content="noindex, nofollow">
 <title><?= e($title) ?> — MC Attorneys CMS</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="<?= e(url('assets/css/admin.css')) ?>">
+<link rel="stylesheet" href="<?= e(url('assets/css/admin.css')) ?>?v=<?= (int) @filemtime(__DIR__ . '/../assets/css/admin.css') ?>">
 </head>
 <body class="admin">
 <?php if ($user): ?>
