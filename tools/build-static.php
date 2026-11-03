@@ -107,6 +107,7 @@ $seed = [
     ],
 ];
 file_put_contents($out . '/assets/js/demo-seed.js', 'window.MC_DEMO_SEED = ' . json_encode($seed, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG) . ';');
+if (is_file($root . '/favicon.ico')) { copy($root . '/favicon.ico', $out . '/favicon.ico'); }
 touch($out . '/.nojekyll');
 
 $demoScripts = '<script src="' . $base . '/assets/js/demo-seed.js"></script><script src="' . $base . '/assets/js/demo-store.js"></script><script src="' . $base . '/assets/js/demo-public.js"></script>';
@@ -233,6 +234,7 @@ foreach ($posts as $post) {
 /* ---------- CMS demo (browser-only admin) ---------- */
 $adminHtml = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">'
     . '<meta name="robots" content="noindex, nofollow"><meta name="mc-base" content="' . $base . '/"><title>Content Manager (demo) — MC Attorneys</title>'
+    . '<link rel="icon" href="' . $base . '/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="' . $base . '/assets/img/favicon-32.png">'
     . '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">'
     . '<link rel="stylesheet" href="' . $base . '/assets/css/admin.css"><link rel="stylesheet" href="' . $base . '/assets/css/demo-admin.css">'
     . '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.snow.css"></head><body class="admin"><div id="app"></div>'

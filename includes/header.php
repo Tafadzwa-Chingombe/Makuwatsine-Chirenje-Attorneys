@@ -24,6 +24,10 @@ $full_title = $page_title === FIRM['name'] ? $page_title : $page_title . ' | ' .
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?= e($full_title) ?></title>
+<link rel="icon" href="<?= e(url('favicon.ico')) ?>" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="<?= e(url('assets/img/favicon-32.png')) ?>">
+<link rel="icon" type="image/png" sizes="192x192" href="<?= e(url('assets/img/favicon-192.png')) ?>">
+<link rel="apple-touch-icon" href="<?= e(url('assets/img/apple-touch-icon.png')) ?>">
 <meta name="description" content="<?= e($meta_desc) ?>">
 <meta property="og:title" content="<?= e($full_title) ?>">
 <meta property="og:description" content="<?= e($meta_desc) ?>">

@@ -23,7 +23,7 @@ $v = [
     'db_host' => 'localhost', 'db_name' => '', 'db_user' => '', 'db_pass' => '',
     'site_url' => ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://') . ($_SERVER['HTTP_HOST'] ?? 'localhost') . $guessBase,
     'base_path' => $guessBase === '/' ? '' : $guessBase,
-    'mail_to' => 'admin@mcattorneys.co.zw', 'mail_from' => '',
+    'mail_to' => 'admin@makuwatsinechirenjeattorneys.co.zw', 'mail_from' => '',
     'admin_name' => '', 'admin_email' => '',
 ];
 $withSamples = true;
@@ -98,6 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
 <title>Install — MC Attorneys CMS</title>
+<link rel="icon" href="<?= e(url('favicon.ico')) ?>" sizes="any"><link rel="icon" type="image/png" href="<?= e(url('assets/img/favicon-32.png')) ?>">
 <style>
 body{font:16px/1.55 system-ui,sans-serif;background:#0B1F3A;margin:0;padding:32px 16px;color:#2A3342}
 .card{max-width:640px;margin:0 auto;background:#fff;border-radius:10px;padding:32px}

@@ -52,8 +52,8 @@ You now have three things written down: **database name, database user, database
 | Database password | the password from Step 2 |
 | Site URL | already filled in; check it matches your address, with no slash at the end |
 | Install folder | leave blank if the site is in `public_html` itself |
-| Send contact enquiries to | `admin@mcattorneys.co.zw` (already filled in) |
-| Send enquiries from | an address on your domain, for example `no-reply@mcattorneys.co.zw` (see Step 8) |
+| Send contact enquiries to | `admin@makuwatsinechirenjeattorneys.co.zw` (already filled in) |
+| Send enquiries from | an address on your domain, for example `no-reply@makuwatsinechirenjeattorneys.co.zw` (see Step 8) |
 | Name / Email / Password | your CMS admin login. Keep these safe |
 | Add the 7 sample blog articles | leave ticked if you want the Blog page filled with the demo articles and pictures; untick for an empty blog |
 
@@ -76,8 +76,8 @@ If you see an error about writing `includes/config.php`, go to File Manager, rig
 3. Click **Save Changes**. Only do this once the padlock from Step 4 is working.
 
 ## Step 8 — Email (so enquiries arrive)
-1. In cPanel, open **Email Accounts** and make sure **`admin@mcattorneys.co.zw`** exists. This is where the Contact form sends messages. If it does not, click **Create** and set a password.
-2. Create a second address such as **`no-reply@mcattorneys.co.zw`**. This is the "from" address the website uses. If you used a different address in Step 5, create that one instead.
+1. In cPanel, open **Email Accounts** and make sure **`admin@makuwatsinechirenjeattorneys.co.zw`** exists. This is where the Contact form sends messages. If it does not, click **Create** and set a password.
+2. Create a second address such as **`no-reply@makuwatsinechirenjeattorneys.co.zw`**. This is the "from" address the website uses. If you used a different address in Step 5, create that one instead.
 3. Open **Email Deliverability** and click **Manage** next to your domain. If it says there are problems with SPF or DKIM, click **Repair**. This keeps messages out of spam.
 
 Every message from the Contact page is also saved in the CMS under **Enquiries**, so nothing is lost even if an email is delayed.
@@ -89,7 +89,7 @@ Open each of these and check that the pictures show:
 - [ ] Open one blog article. Its cover picture shows at the top.
 - [ ] Go to `https://yourdomain.co.zw/admin/` and log in with the admin email and password from Step 5.
 - [ ] Click **New article**, write a short test article, add a cover picture and click **Publish**. Open the Blog page and check it appears. Then delete the test article.
-- [ ] Send a test message from the **Contact** page. Check it appears in the CMS under **Enquiries**, and that an email arrives at `admin@mcattorneys.co.zw`.
+- [ ] Send a test message from the **Contact** page. Check it appears in the CMS under **Enquiries**, and that an email arrives at `admin@makuwatsinechirenjeattorneys.co.zw`.
 
 ## Using the CMS day to day
 - **Write an article:** Admin → **New article** → add title, text, category, cover picture → **Publish** (or **Save draft** to keep it private).
