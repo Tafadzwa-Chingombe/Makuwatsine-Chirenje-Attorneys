@@ -4,6 +4,8 @@ require_once __DIR__ . '/includes/functions.php';
 require_once __DIR__ . '/includes/data.php';
 require_once __DIR__ . '/includes/partials.php';
 $page_title = FIRM['name'];
+$seo_title = 'Makuwatsine Chirenje Attorneys | Lawyers in Harare, Zimbabwe';
+$meta_desc = 'Harare law firm offering conveyancing, estates, litigation, labour, commercial and mining law to individuals and businesses in Zimbabwe. Book a consultation.';
 require __DIR__ . '/includes/header.php';
 ?>
 <section class="hero" style="background-image:url(<?= e(url('assets/img/hero-courtroom.jpg')) ?>)">
@@ -74,5 +76,6 @@ require __DIR__ . '/includes/header.php';
 </section>
 
 <?php
+faq_section(firm_faqs('firm'), 'Questions about our firm', 'FAQ');
 cta_banner('Get in touch', 'Need legal advice? Speak to MC Attorneys today.', implode(', ', FIRM['address']) . ' · ' . FIRM['phones'][0]);
 require __DIR__ . '/includes/footer.php';

@@ -6,6 +6,11 @@ DirectoryIndex index.php
   RewriteEngine On
   # Pretty article URLs: /blog/my-article -> post.php?slug=my-article
   RewriteRule ^blog/([A-Za-z0-9\-]+)/?$ post.php?slug=$1 [L,QSA]
+
+  # Search-engine files, generated from the site's own data
+  RewriteRule ^sitemap\.xml$ sitemap.php [L]
+  RewriteRule ^robots\.txt$ robots.php [L]
+  RewriteRule ^llms\.txt$ llms.php [L]
 </IfModule>
 
 # Never serve config, SQL, docs or git metadata
@@ -19,6 +24,11 @@ DirectoryIndex index.php
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
+# Compress text so pages load faster (helps rankings)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml application/xml application/javascript application/json image/svg+xml
+</IfModule>
+
 # Compression + caching for static assets
 <IfModule mod_expires.c>
   ExpiresActive On
@@ -28,6 +38,13 @@ DirectoryIndex index.php
   ExpiresByType image/jpeg "access plus 1 year"
   ExpiresByType image/png "access plus 1 year"
 </IfModule>
+
+# --- ONE main web address (important for Google) --------------------------------------------
+# When makuwatsinechirenjeattorneys.co.zw is connected to this hosting and working, remove the
+# leading "# " from the 3 lines below so the old / "www" addresses redirect to the main one.
+# RewriteCond %{HTTP_HOST} !^makuwatsinechirenjeattorneys\.co\.zw$ [NC]
+# RewriteCond %{HTTP_HOST} !^(localhost|127\.0\.0\.1)
+# RewriteRule ^ https://makuwatsinechirenjeattorneys.co.zw%{REQUEST_URI} [L,R=301]
 
 # Force HTTPS once an SSL certificate (AutoSSL) is active — uncomment:
 # RewriteCond %{HTTPS} off

@@ -5,7 +5,8 @@ require_once __DIR__ . '/includes/partials.php';
 
 $active = 'contact';
 $page_title = 'Contact Us';
-$meta_desc = 'Contact Makuwatsine Chirenje Attorneys at 6 Londonderry Avenue, Eastlea, Harare. Call, email or send us a message.';
+$seo_title = 'Contact Us | Lawyers in Eastlea, Harare | MC Attorneys';
+$meta_desc = 'Contact Makuwatsine Chirenje Attorneys at 6 Londonderry Avenue, Eastlea, Harare. Call +263 24 2720094, email us or send a message to book a consultation.';
 
 $areas = array_column(practice_areas(), 0);
 $old = ['name' => '', 'phone' => '', 'email' => '', 'area' => '', 'message' => ''];

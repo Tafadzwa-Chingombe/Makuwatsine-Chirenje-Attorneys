@@ -2,10 +2,12 @@
 require_once __DIR__ . '/includes/functions.php';
 require_once __DIR__ . '/includes/data.php';
 require_once __DIR__ . '/includes/partials.php';
+require_once __DIR__ . '/includes/seo.php';
 
 $active = 'blog';
 $page_title = 'Blog';
-$meta_desc = 'Legal insights and news from Makuwatsine Chirenje Attorneys: property, estates, labour, commercial and mining law in Zimbabwe.';
+$seo_title = 'Legal Insights & News | MC Attorneys, Harare';
+$meta_desc = 'Practical legal guidance and news from Makuwatsine Chirenje Attorneys on property, estates, labour, commercial and mining law in Zimbabwe.';
 
 $cats = all_categories();
 $cat = isset($_GET['category']) && in_array($_GET['category'], $cats, true) ? $_GET['category'] : '';
@@ -56,6 +58,8 @@ function blog_link(int $p, string $cat): string
     return url('blog.php') . ($q ? '?' . http_build_query($q) : '');
 }
 
+// One canonical address per list page; category filters point back to the main blog list.
+$canonical = canonical_for('blog.php') . ($pageNo > 1 && $cat === '' ? '?page=' . $pageNo : '');
 require __DIR__ . '/includes/header.php';
 page_hero('Legal insights', 'News and articles from MC Attorneys.', 'Practical guidance on property, estates, labour and commercial law.', 'assets/img/about-story.jpg');
 ?>

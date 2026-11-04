@@ -13,6 +13,7 @@ $out  = rtrim($argv[1] ?? '', '/');
 $base = rtrim($argv[2] ?? '', '/');
 if ($out === '') { fwrite(STDERR, "Usage: php tools/build-static.php <output-dir> [base-path]\n"); exit(1); }
 
+define('MC_NOINDEX', true); // the GitHub demo must never compete with the real website in Google
 define('STATIC_CONFIG', ['base_path' => $base, 'site_url' => 'https://tafadzwa-chingombe.github.io' . $base]);
 $_SERVER['REQUEST_METHOD'] = 'GET';
 $_SERVER['REMOTE_ADDR'] = '127.0.0.1';

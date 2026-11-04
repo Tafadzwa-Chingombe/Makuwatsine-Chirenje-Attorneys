@@ -17,6 +17,9 @@ return [
     // Public canonical URL (no trailing slash) used in meta tags / emails.
     'site_url' => 'https://www.example.co.zw',
 
+    // The ONE address search engines should treat as the main website (used in canonical links, sitemap, social cards).
+    'canonical_url' => 'https://makuwatsinechirenjeattorneys.co.zw',
+
     // Contact form recipient and sender (sender should be an address on your own domain).
     'mail_to'   => 'admin@makuwatsinechirenjeattorneys.co.zw',
     'mail_from' => 'no-reply@example.co.zw',

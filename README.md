@@ -67,3 +67,6 @@ Source: `tools/demo-cms/` (`demo-store.js`, `demo-public.js`, `demo-admin.js`, `
 
 ## Uploading to cPanel
 Run `bash tools/make-cpanel-package.sh` to rebuild `deploy/mc-attorneys-cpanel.zip` (website + CMS + all pictures), then follow `deploy/CPANEL-UPLOAD-GUIDE.md`.
+
+## SEO and AI search
+See `deploy/SEO-GUIDE.md`. The site publishes a sitemap (`/sitemap.xml`), `robots.txt`, `llms.txt`, structured data and FAQ sections. The main address is set by `canonical_url` in `includes/config.sample.php`; opening hours and social links go in `includes/seo-settings.php`. The GitHub demo build is marked `noindex` (`MC_NOINDEX` in `tools/build-static.php`).

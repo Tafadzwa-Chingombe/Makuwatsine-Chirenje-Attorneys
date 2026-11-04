@@ -4,7 +4,8 @@ require_once __DIR__ . '/includes/data.php';
 require_once __DIR__ . '/includes/partials.php';
 $active = 'practice';
 $page_title = 'Practice Areas';
-$meta_desc = 'Conveyancing, notarial practice, litigation, estates, labour, commercial and corporate, energy and mining, insurance, intellectual property, insolvency and tax law in Harare, Zimbabwe.';
+$seo_title = 'Legal Services in Zimbabwe | Practice Areas | MC Attorneys';
+$meta_desc = 'Conveyancing, notarial, criminal, civil litigation, labour, commercial, estates, family, insolvency, intellectual property, mining and insurance law in Harare.';
 require __DIR__ . '/includes/header.php';
 ?>
 <section class="services-intro" style="background-image:url(<?= e(url('assets/img/practice-hero.jpg')) ?>)">
@@ -52,5 +53,6 @@ require __DIR__ . '/includes/header.php';
   </div>
 </section>
 <?php
+faq_section(firm_faqs('services'), 'Common questions about our legal services', 'FAQ');
 cta_banner('Not sure where to start?', 'Tell us about your matter and we will guide you.');
 require __DIR__ . '/includes/footer.php';
